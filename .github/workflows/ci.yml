@@ -19,7 +19,7 @@ concurrency:
 jobs:
   # Shared CI, see https://github.com/christoph-sens/ci-workflows
   ci:
-    uses: christoph-sens/ci-workflows/.github/workflows/flutter-ci.yml@11c4ac4cef7bb4e022e0f015cfffb98c55895d93 # feat/flutter-ci
+    uses: christoph-sens/ci-workflows/.github/workflows/flutter-ci.yml@e6c58d6668aceac769ad729869cd6307ecaa5026 # v1.5.0
     permissions:
       contents: read
       security-events: write # CodeQL results
