@@ -1,33 +1,39 @@
 import 'package:flutter/material.dart';
 
 import '../../data/services/ads_service.dart';
+import '../../data/services/device_service.dart';
 import '../../domain/catalog.dart';
 import '../../domain/game.dart';
 import '../../domain/moments.dart';
 import '../../domain/rating.dart';
 import '../../l10n/app_localizations.dart';
+import '../look/look_screen.dart';
 import '../settings/settings_view_model.dart';
 import '../widgets/bilingual_text.dart';
+import '../widgets/keep_screen_on.dart';
 import 'game_view_model.dart';
 
 /// What the person on the finish view chose. Returned when the route pops.
 enum FinishAction { newGame, toStart }
 
 /// The whole game is one screen. What it shows follows from the game state:
-/// stage intro, answer or rating, and at the end the summary. "Zurück" is a
-/// step in the state, not a change of route.
+/// stage intro, answer or rating, at the end the offer of the four-minute
+/// look and the summary. "Zurück" is a step in the state, not a change of
+/// route. The screen stays on while the game runs.
 class GameScreen extends StatelessWidget {
   const GameScreen({
     super.key,
     required this.catalog,
     required this.settings,
     required this.ads,
+    required this.device,
     required this.viewModel,
   });
 
   final Catalog catalog;
   final SettingsViewModel settings;
   final AdsService ads;
+  final DeviceService device;
   final GameViewModel viewModel;
 
   @override
@@ -45,36 +51,46 @@ class GameScreen extends StatelessWidget {
           onPopInvokedWithResult: (didPop, _) {
             if (!didPop && viewModel.canGoBack) viewModel.back();
           },
-          child: Scaffold(
-            appBar: AppBar(
-              title: switch (step) {
-                AnswerStep(:final number, :final total) => Semantics(
-                  label: l10n.progressSemantics(number, total),
-                  child: ExcludeSemantics(
-                    child: Text(l10n.progress(number, total)),
+          child: KeepScreenOn(
+            device: device,
+            enabled: step is! FinishedStep,
+            child: Scaffold(
+              appBar: AppBar(
+                title: switch (step) {
+                  AnswerStep(:final number, :final total) => Semantics(
+                    label: l10n.progressSemantics(number, total),
+                    child: ExcludeSemantics(
+                      child: Text(l10n.progress(number, total)),
+                    ),
                   ),
-                ),
-                FinishedStep() => Text(l10n.finishTitle),
-                _ => null,
-              },
-              actions: [
-                if (step is! FinishedStep)
-                  IconButton(
-                    icon: const Icon(Icons.flag_outlined),
-                    tooltip: l10n.endGame,
-                    onPressed: () => _confirmEnd(context),
+                  FinishedStep() when viewModel.offersLook => Text(
+                    l10n.lookTitle,
                   ),
-              ],
-            ),
-            body: SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(24, 8, 24, 24),
-                child: switch (step) {
-                  StageIntroStep() => _StageIntroView(this, step),
-                  AnswerStep() => _AnswerView(this, step),
-                  RatingStep() => _RatingView(this, step),
-                  FinishedStep() => _FinishView(this),
+                  FinishedStep() => Text(l10n.finishTitle),
+                  _ => null,
                 },
+                actions: [
+                  if (step is! FinishedStep)
+                    IconButton(
+                      icon: const Icon(Icons.flag_outlined),
+                      tooltip: l10n.endGame,
+                      onPressed: () => _confirmEnd(context),
+                    ),
+                ],
+              ),
+              body: SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(24, 8, 24, 24),
+                  child: switch (step) {
+                    StageIntroStep() => _StageIntroView(this, step),
+                    AnswerStep() => _AnswerView(this, step),
+                    RatingStep() => _RatingView(this, step),
+                    FinishedStep() when viewModel.offersLook => _LookOfferView(
+                      this,
+                    ),
+                    FinishedStep() => _FinishView(this),
+                  },
+                ),
               ),
             ),
           ),
@@ -277,6 +293,58 @@ class _RatingView extends StatelessWidget {
         Rating.interesting => l10n.ratingInteresting,
         Rating.okay => l10n.ratingOkay,
       };
+}
+
+/// After the last question (US-14): one sentence, then the look or skip.
+class _LookOfferView extends StatefulWidget {
+  const _LookOfferView(this.screen);
+
+  final GameScreen screen;
+
+  @override
+  State<_LookOfferView> createState() => _LookOfferViewState();
+}
+
+class _LookOfferViewState extends State<_LookOfferView> {
+  @override
+  void initState() {
+    super.initState();
+    // Four minutes are enough for the interstitial to be ready at the end.
+    widget.screen.ads.preloadInterstitial();
+  }
+
+  Future<void> _startLook() async {
+    final screen = widget.screen;
+    await Navigator.push<void>(
+      context,
+      MaterialPageRoute(
+        builder: (_) => LookScreen(
+          device: screen.device,
+          sound: screen.settings.settings.soundOn,
+        ),
+      ),
+    );
+    screen.viewModel.finishLook();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final textTheme = Theme.of(context).textTheme;
+    return _Layout(
+      content: [
+        const SizedBox(height: 32),
+        Text(l10n.lookOffer, style: textTheme.headlineSmall),
+      ],
+      buttons: [
+        FilledButton(onPressed: _startLook, child: Text(l10n.lookStart)),
+        TextButton(
+          onPressed: widget.screen.viewModel.finishLook,
+          child: Text(l10n.skip),
+        ),
+      ],
+    );
+  }
 }
 
 class _FinishView extends StatefulWidget {

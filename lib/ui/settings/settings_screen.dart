@@ -5,6 +5,7 @@ import '../../app/dependencies.dart';
 import '../../data/services/purchase_service.dart';
 import '../../domain/catalog.dart';
 import '../../l10n/app_localizations.dart';
+import '../intro/intro_screen.dart';
 import '../widgets/bilingual_text.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -47,6 +48,12 @@ class SettingsScreen extends StatelessWidget {
                   ],
                 ),
               ),
+              _Header(l10n.lookTitle),
+              SwitchListTile(
+                title: Text(l10n.soundSetting),
+                value: settings.settings.soundOn,
+                onChanged: settings.setSoundOn,
+              ),
               _Header(l10n.adFreeTitle),
               if (purchases.adFree)
                 ListTile(
@@ -88,6 +95,15 @@ class SettingsScreen extends StatelessWidget {
                   onTap: ads.resetConsent,
                 ),
               _Header(l10n.aboutTitle),
+              ListTile(
+                title: Text(l10n.showIntro),
+                onTap: () => Navigator.push<void>(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => IntroScreen(settings: settings),
+                  ),
+                ),
+              ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 0, 16, 32),
                 child: Text(l10n.aboutSource),

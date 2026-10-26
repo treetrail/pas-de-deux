@@ -197,4 +197,54 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get resetConsent => 'Reset consent (test)';
+
+  @override
+  String get introTitle1 => 'Two people, 36 questions';
+
+  @override
+  String get introBody1 =>
+      'Based on an idea from the study by Aron et al. (1997): two people take turns asking each other questions that get more personal level by level. The questions in this app are our own wording. Whether you grow closer is entirely up to you.';
+
+  @override
+  String get introTitle2 => 'How a turn works';
+
+  @override
+  String get introBody2 =>
+      'You share one phone. One person answers the question, the other holds the phone and then indicates how much the answer moved them. Then you swap. Rating is optional and stays hidden until it shows up in your best moments.';
+
+  @override
+  String get introTitle3 => 'Take your time';
+
+  @override
+  String get introBody3 =>
+      'All 36 questions take about 45 minutes. You can choose fewer questions, skip questions and pause at any time. At the end, you can look into each other\'s eyes for four minutes.';
+
+  @override
+  String introPage(int number, int total) {
+    return 'Page $number of $total';
+  }
+
+  @override
+  String get showIntro => 'Show the introduction';
+
+  @override
+  String get lookTitle => 'The four-minute look';
+
+  @override
+  String get lookOffer =>
+      'To finish, look into each other\'s eyes in silence for four minutes.';
+
+  @override
+  String get lookStart => 'Start';
+
+  @override
+  String lookRemaining(String time) {
+    return 'Time left $time';
+  }
+
+  @override
+  String get lookDone => 'The four minutes are up.';
+
+  @override
+  String get soundSetting => 'Sound at the end of the look';
 }

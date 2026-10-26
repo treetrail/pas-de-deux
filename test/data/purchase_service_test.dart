@@ -1,45 +1,9 @@
-import 'dart:async';
-
 import 'package:flutter_test/flutter_test.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:pasdedeux/data/repositories/ad_free_repository.dart';
 import 'package:pasdedeux/data/services/purchase_service.dart';
 
 import '../fakes.dart';
-
-class FakeStore extends Fake implements InAppPurchase {
-  final updates = StreamController<List<PurchaseDetails>>.broadcast();
-  bool failToComplete = false;
-  int completed = 0;
-
-  @override
-  Stream<List<PurchaseDetails>> get purchaseStream => updates.stream;
-
-  @override
-  Future<bool> isAvailable() async => true;
-
-  @override
-  Future<ProductDetailsResponse> queryProductDetails(Set<String> ids) async =>
-      ProductDetailsResponse(
-        productDetails: [
-          ProductDetails(
-            id: PurchaseService.productId,
-            title: 'Werbefrei',
-            description: '',
-            price: '1,99 €',
-            rawPrice: 1.99,
-            currencyCode: 'EUR',
-          ),
-        ],
-        notFoundIDs: const [],
-      );
-
-  @override
-  Future<void> completePurchase(PurchaseDetails purchase) async {
-    completed++;
-    if (failToComplete) throw StateError('no transaction ID');
-  }
-}
 
 PurchaseDetails purchase(PurchaseStatus status) => PurchaseDetails(
   purchaseID: '1',

@@ -197,4 +197,54 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get resetConsent => 'Reimposta consenso (test)';
+
+  @override
+  String get introTitle1 => 'Due persone, 36 domande';
+
+  @override
+  String get introBody1 =>
+      'Da un\'idea dello studio di Aron et al. (1997): due persone si fanno a turno domande sempre più personali, livello dopo livello. Le domande di questa app sono formulate in modo originale. Se vi avvicinerete, dipende solo da voi.';
+
+  @override
+  String get introTitle2 => 'Come funziona un turno';
+
+  @override
+  String get introBody2 =>
+      'Condividete un solo telefono. Una persona risponde alla domanda, l\'altra tiene il telefono e poi indica quanto l\'ha toccata la risposta. Poi vi scambiate. La valutazione è facoltativa e resta nascosta finché non compare tra i vostri momenti più belli.';
+
+  @override
+  String get introTitle3 => 'Prendetevi il vostro tempo';
+
+  @override
+  String get introBody3 =>
+      'Tutte le 36 domande richiedono circa 45 minuti. Potete scegliere meno domande, saltarle e fare una pausa in qualsiasi momento. Alla fine potete guardarvi negli occhi per quattro minuti.';
+
+  @override
+  String introPage(int number, int total) {
+    return 'Pagina $number di $total';
+  }
+
+  @override
+  String get showIntro => 'Mostra l\'introduzione';
+
+  @override
+  String get lookTitle => 'Lo sguardo di quattro minuti';
+
+  @override
+  String get lookOffer =>
+      'Per finire, guardatevi negli occhi in silenzio per quattro minuti.';
+
+  @override
+  String get lookStart => 'Inizia';
+
+  @override
+  String lookRemaining(String time) {
+    return 'Tempo rimasto $time';
+  }
+
+  @override
+  String get lookDone => 'I quattro minuti sono finiti.';
+
+  @override
+  String get soundSetting => 'Suono alla fine dello sguardo';
 }

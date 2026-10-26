@@ -24,6 +24,7 @@ Future<GameViewModel> pumpGame(
   WidgetTester tester, {
   required GameState game,
   MemoryStore? store,
+  FakeDevice? device,
   String language = 'de',
   String? secondLanguage = 'es',
   double textScale = 1,
@@ -61,6 +62,7 @@ Future<GameViewModel> pumpGame(
             catalog: catalog,
             settings: settings,
             ads: AdsService(),
+            device: device ?? FakeDevice(),
             viewModel: viewModel,
           ),
         ),
@@ -217,10 +219,72 @@ void main() {
     await tester.runAsync(() => viewModel.pendingWrites);
 
     expect(viewModel.step, isA<FinishedStep>());
+    viewModel.finishLook();
+    await tester.pumpAndSettle();
     expect(await repository.loadSavedGame(), isNull);
     expect((await repository.loadWeights())[id], closeTo(1.2, 1e-9));
     expect(await repository.loadLastGame(), {id});
     expect(find.textContaining('hat'), findsOneWidget);
     expect(debugDefaultTargetPlatformOverride, isNull);
   });
+  testWidgets('keeps the screen on while the game runs', (tester) async {
+    final device = FakeDevice();
+    final viewModel = await pumpGame(
+      tester,
+      game: oneQuestionGame(),
+      device: device,
+    );
+    expect(device.awake, 1);
+    viewModel.end();
+    await tester.pumpAndSettle();
+    expect(device.awake, 0);
+  });
+
+  testWidgets('offers the four-minute look after the last question', (
+    tester,
+  ) async {
+    final viewModel = await pumpGame(tester, game: oneQuestionGame());
+    finishOneQuestion(viewModel);
+    await tester.pumpAndSettle();
+    expect(find.text('Der 4-Minuten-Blick'), findsOneWidget);
+
+    await tester.tap(find.text('Überspringen'));
+    await tester.pumpAndSettle();
+    expect(find.text('Eure schönsten Momente'), findsOneWidget);
+  });
+
+  testWidgets('goes from the look to the summary', (tester) async {
+    final viewModel = await pumpGame(tester, game: oneQuestionGame());
+    finishOneQuestion(viewModel);
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Starten'));
+    // A new route is offstage for its first frame, and the look ticks every
+    // second, so the frames never settle.
+    await tester.pump();
+    await tester.pump(const Duration(seconds: 1));
+    expect(find.text('4:00'), findsOneWidget);
+    await tester.tap(find.text('Abbrechen'));
+    await tester.pump();
+    await tester.pump(const Duration(seconds: 1));
+    expect(find.text('Eure schönsten Momente'), findsOneWidget);
+  });
+
+  testWidgets('goes straight to the summary after "Partie beenden"', (
+    tester,
+  ) async {
+    final viewModel = await pumpGame(tester, game: oneQuestionGame());
+    viewModel.end();
+    await tester.pumpAndSettle();
+    expect(find.text('Der 4-Minuten-Blick'), findsNothing);
+    expect(find.text('Eure schönsten Momente'), findsOneWidget);
+  });
 }
+
+GameState oneQuestionGame() => startGame(stages: [1], count: 1);
+
+void finishOneQuestion(GameViewModel viewModel) => viewModel
+  ..next()
+  ..rate(null)
+  ..next()
+  ..rate(null);

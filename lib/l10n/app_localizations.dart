@@ -421,6 +421,90 @@ abstract class AppLocalizations {
   /// In de, this message translates to:
   /// **'Einwilligung zurücksetzen (Test)'**
   String get resetConsent;
+
+  /// No description provided for @introTitle1.
+  ///
+  /// In de, this message translates to:
+  /// **'Zwei Menschen, 36 Fragen'**
+  String get introTitle1;
+
+  /// No description provided for @introBody1.
+  ///
+  /// In de, this message translates to:
+  /// **'Nach einer Idee aus der Studie von Aron et al. (1997): Zwei Menschen stellen sich abwechselnd Fragen, die Stufe für Stufe persönlicher werden. Die Fragen dieser App sind eigene Formulierungen. Ob ihr euch dabei näherkommt, liegt ganz bei euch.'**
+  String get introBody1;
+
+  /// No description provided for @introTitle2.
+  ///
+  /// In de, this message translates to:
+  /// **'So läuft ein Zug'**
+  String get introTitle2;
+
+  /// No description provided for @introBody2.
+  ///
+  /// In de, this message translates to:
+  /// **'Ihr teilt euch ein Handy. Eine Person beantwortet die Frage, die andere hält das Handy und gibt danach an, wie sehr die Antwort sie berührt hat. Dann tauscht ihr. Die Bewertung ist freiwillig und bleibt verborgen, bis sie bei euren schönsten Momenten auftaucht.'**
+  String get introBody2;
+
+  /// No description provided for @introTitle3.
+  ///
+  /// In de, this message translates to:
+  /// **'Nehmt euch Zeit'**
+  String get introTitle3;
+
+  /// No description provided for @introBody3.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle 36 Fragen dauern etwa 45 Minuten. Ihr könnt weniger Fragen wählen, Fragen überspringen und jederzeit unterbrechen. Zum Schluss könnt ihr euch vier Minuten lang in die Augen sehen.'**
+  String get introBody3;
+
+  /// No description provided for @introPage.
+  ///
+  /// In de, this message translates to:
+  /// **'Seite {number} von {total}'**
+  String introPage(int number, int total);
+
+  /// No description provided for @showIntro.
+  ///
+  /// In de, this message translates to:
+  /// **'Einführung ansehen'**
+  String get showIntro;
+
+  /// No description provided for @lookTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Der 4-Minuten-Blick'**
+  String get lookTitle;
+
+  /// No description provided for @lookOffer.
+  ///
+  /// In de, this message translates to:
+  /// **'Zum Schluss seht ihr euch vier Minuten lang schweigend in die Augen.'**
+  String get lookOffer;
+
+  /// No description provided for @lookStart.
+  ///
+  /// In de, this message translates to:
+  /// **'Starten'**
+  String get lookStart;
+
+  /// No description provided for @lookRemaining.
+  ///
+  /// In de, this message translates to:
+  /// **'Restzeit {time}'**
+  String lookRemaining(String time);
+
+  /// No description provided for @lookDone.
+  ///
+  /// In de, this message translates to:
+  /// **'Die vier Minuten sind um.'**
+  String get lookDone;
+
+  /// No description provided for @soundSetting.
+  ///
+  /// In de, this message translates to:
+  /// **'Ton am Ende des Blicks'**
+  String get soundSetting;
 }
 
 class _AppLocalizationsDelegate

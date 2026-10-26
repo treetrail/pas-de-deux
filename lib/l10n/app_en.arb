@@ -52,5 +52,19 @@
   "purchaseFailed": "The purchase didn't go through.",
   "aboutTitle": "About the app",
   "aboutSource": "Based on an idea from the study by Aron et al. (1997): “The Experimental Generation of Interpersonal Closeness: A Procedure and Some Preliminary Findings”, Personality and Social Psychology Bulletin 23 (4), 363–377. The questions are our own wording. The authors of the study have no connection to this app.",
-  "resetConsent": "Reset consent (test)"
+  "resetConsent": "Reset consent (test)",
+  "introTitle1": "Two people, 36 questions",
+  "introBody1": "Based on an idea from the study by Aron et al. (1997): two people take turns asking each other questions that get more personal level by level. The questions in this app are our own wording. Whether you grow closer is entirely up to you.",
+  "introTitle2": "How a turn works",
+  "introBody2": "You share one phone. One person answers the question, the other holds the phone and then indicates how much the answer moved them. Then you swap. Rating is optional and stays hidden until it shows up in your best moments.",
+  "introTitle3": "Take your time",
+  "introBody3": "All 36 questions take about 45 minutes. You can choose fewer questions, skip questions and pause at any time. At the end, you can look into each other's eyes for four minutes.",
+  "introPage": "Page {number} of {total}",
+  "showIntro": "Show the introduction",
+  "lookTitle": "The four-minute look",
+  "lookOffer": "To finish, look into each other's eyes in silence for four minutes.",
+  "lookStart": "Start",
+  "lookRemaining": "Time left {time}",
+  "lookDone": "The four minutes are up.",
+  "soundSetting": "Sound at the end of the look"
 }

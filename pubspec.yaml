@@ -8,6 +8,7 @@ environment:
   sdk: ^3.13.7
 
 dependencies:
+  audioplayers: ^6.8.1
   flutter:
     sdk: flutter
   flutter_localizations:
@@ -16,6 +17,7 @@ dependencies:
   in_app_purchase: ^3.3.1
   intl: ^0.20.3
   shared_preferences: ^2.5.6
+  wakelock_plus: ^1.8.2
 
 dev_dependencies:
   flutter_test:
@@ -27,3 +29,4 @@ flutter:
   generate: true
   assets:
     - assets/questions.json
+    - assets/sounds/look_end.wav
