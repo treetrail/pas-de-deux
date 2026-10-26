@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import '../../app/dependencies.dart';
@@ -6,12 +8,15 @@ import '../../domain/game.dart';
 import '../../l10n/app_localizations.dart';
 import '../game/game_screen.dart';
 import '../game/game_view_model.dart';
+import '../intro/intro_screen.dart';
 import '../settings/settings_screen.dart';
 import '../setup/setup_screen.dart';
 import '../widgets/banner_slot.dart';
 
-/// The start screen opens every other screen and comes back here. If a game
-/// was interrupted, the app goes straight back into it (US-11).
+/// The start screen opens every other screen and comes back here. On the
+/// first start the introduction comes first (US-02), then the consent
+/// dialog. If a game was interrupted, the app goes straight back into it
+/// (US-11).
 class StartScreen extends StatefulWidget {
   const StartScreen({super.key, required this.dependencies});
 
@@ -29,7 +34,21 @@ class _StartScreenState extends State<StartScreen> {
   @override
   void initState() {
     super.initState();
-    _loadSavedGame(resume: true);
+    // The start screen comes first, nothing waits for the network.
+    WidgetsBinding.instance.addPostFrameCallback((_) => _firstFrame());
+  }
+
+  Future<void> _firstFrame() async {
+    if (!_dependencies.settings.settings.introSeen) {
+      await Navigator.push<void>(
+        context,
+        MaterialPageRoute(
+          builder: (_) => IntroScreen(settings: _dependencies.settings),
+        ),
+      );
+    }
+    unawaited(_dependencies.ads.start());
+    await _loadSavedGame(resume: true);
   }
 
   Future<void> _loadSavedGame({bool resume = false}) async {
@@ -47,6 +66,7 @@ class _StartScreenState extends State<StartScreen> {
           catalog: _dependencies.catalog,
           settings: _dependencies.settings,
           ads: _dependencies.ads,
+          device: _dependencies.device,
           viewModel: GameViewModel(repository: _dependencies.games, game: game),
         ),
       ),

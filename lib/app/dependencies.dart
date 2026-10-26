@@ -1,5 +1,6 @@
 import '../data/repositories/game_repository.dart';
 import '../data/services/ads_service.dart';
+import '../data/services/device_service.dart';
 import '../data/services/purchase_service.dart';
 import '../domain/catalog.dart';
 import '../ui/settings/settings_view_model.dart';
@@ -12,6 +13,7 @@ class Dependencies {
     required this.games,
     required this.ads,
     required this.purchases,
+    required this.device,
   });
 
   final Catalog catalog;
@@ -19,4 +21,5 @@ class Dependencies {
   final GameRepository games;
   final AdsService ads;
   final PurchaseService purchases;
+  final DeviceService device;
 }

@@ -52,5 +52,19 @@
   "purchaseFailed": "La compra no se completó.",
   "aboutTitle": "Acerca de la app",
   "aboutSource": "Basada en una idea del estudio de Aron et al. (1997): «The Experimental Generation of Interpersonal Closeness: A Procedure and Some Preliminary Findings», Personality and Social Psychology Bulletin 23 (4), 363–377. Las preguntas tienen redacción propia. Los autores del estudio no tienen ninguna relación con esta app.",
-  "resetConsent": "Restablecer consentimiento (prueba)"
+  "resetConsent": "Restablecer consentimiento (prueba)",
+  "introTitle1": "Dos personas, 36 preguntas",
+  "introBody1": "Basada en una idea del estudio de Aron et al. (1997): dos personas se hacen preguntas por turnos, cada vez más personales, nivel a nivel. Las preguntas de esta app tienen redacción propia. Que eso acerque a las dos personas depende solo de ellas.",
+  "introTitle2": "Así funciona un turno",
+  "introBody2": "Las dos personas comparten un teléfono. Una responde la pregunta; la otra sostiene el teléfono y después indica cuánto le llegó la respuesta. Luego se cambian los papeles. La valoración es opcional y queda oculta hasta que aparece entre los momentos más bonitos.",
+  "introTitle3": "Sin prisas",
+  "introBody3": "Las 36 preguntas llevan unos 45 minutos. Se pueden elegir menos preguntas, saltar preguntas y hacer una pausa en cualquier momento. Al final, las dos personas pueden mirarse a los ojos durante cuatro minutos.",
+  "introPage": "Página {number} de {total}",
+  "showIntro": "Ver la introducción",
+  "lookTitle": "La mirada de cuatro minutos",
+  "lookOffer": "Para terminar: cuatro minutos mirándose a los ojos en silencio.",
+  "lookStart": "Empezar",
+  "lookRemaining": "Tiempo restante {time}",
+  "lookDone": "Han pasado los cuatro minutos.",
+  "soundSetting": "Sonido al final de la mirada"
 }

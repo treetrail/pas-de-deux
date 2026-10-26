@@ -52,5 +52,19 @@
   "purchaseFailed": "L'achat n'a pas abouti.",
   "aboutTitle": "À propos de l'app",
   "aboutSource": "D'après une idée de l'étude d'Aron et al. (1997) : « The Experimental Generation of Interpersonal Closeness: A Procedure and Some Preliminary Findings », Personality and Social Psychology Bulletin 23 (4), 363–377. Les questions sont formulées par nos soins. Les auteurs de l'étude n'ont aucun lien avec cette app.",
-  "resetConsent": "Réinitialiser le consentement (test)"
+  "resetConsent": "Réinitialiser le consentement (test)",
+  "introTitle1": "Deux personnes, 36 questions",
+  "introBody1": "D'après une idée de l'étude d'Aron et al. (1997) : deux personnes se posent à tour de rôle des questions de plus en plus personnelles, niveau après niveau. Les questions de cette app sont formulées par nos soins. Vous rapprocher ou non ne dépend que de vous.",
+  "introTitle2": "Comment se déroule un tour",
+  "introBody2": "Vous partagez un seul téléphone. Une personne répond à la question, l'autre tient le téléphone puis indique ce que la réponse lui a fait ressentir. Ensuite, vous échangez les rôles. La note est facultative et reste cachée jusqu'à ce qu'elle apparaisse parmi vos plus beaux moments.",
+  "introTitle3": "Prenez votre temps",
+  "introBody3": "Les 36 questions prennent environ 45 minutes. Vous pouvez choisir moins de questions, en passer et faire une pause à tout moment. À la fin, vous pouvez vous regarder dans les yeux pendant quatre minutes.",
+  "introPage": "Page {number} sur {total}",
+  "showIntro": "Revoir l'introduction",
+  "lookTitle": "Le regard de quatre minutes",
+  "lookOffer": "Pour finir, regardez-vous dans les yeux en silence pendant quatre minutes.",
+  "lookStart": "Commencer",
+  "lookRemaining": "Temps restant : {time}",
+  "lookDone": "Les quatre minutes sont écoulées.",
+  "soundSetting": "Son à la fin du regard"
 }

@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/widgets.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 
@@ -11,6 +9,7 @@ import 'data/repositories/game_repository.dart';
 import 'data/repositories/key_value_store.dart';
 import 'data/repositories/settings_repository.dart';
 import 'data/services/ads_service.dart';
+import 'data/services/device_service.dart';
 import 'data/services/purchase_service.dart';
 import 'ui/settings/settings_view_model.dart';
 
@@ -35,6 +34,7 @@ Future<void> main() async {
     games: GameRepository(store),
     ads: AdsService(),
     purchases: purchases,
+    device: DeviceService(),
   );
 
   void disableAdsOnceAdFree() {
@@ -44,10 +44,7 @@ Future<void> main() async {
   disableAdsOnceAdFree();
   purchases.addListener(disableAdsOnceAdFree);
 
+  // The start screen asks for consent, after the introduction on the first
+  // start.
   runApp(PasDeDeuxApp(dependencies: dependencies));
-
-  // The start screen comes first, nothing waits for the network.
-  WidgetsBinding.instance.addPostFrameCallback((_) {
-    unawaited(dependencies.ads.start());
-  });
 }

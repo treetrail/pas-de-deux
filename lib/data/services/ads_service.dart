@@ -40,6 +40,7 @@ class AdsService extends ChangeNotifier {
   bool _sdkStarted = false;
   bool _disabled = false;
   InterstitialAd? _interstitial;
+  bool _loadingInterstitial = false;
 
   bool get canShowAds => _canRequestAds && !_disabled;
 
@@ -89,13 +90,20 @@ class AdsService extends ChangeNotifier {
 
   /// Loads the interstitial in the background on the finish screen.
   void preloadInterstitial() {
-    if (!canShowAds || _interstitial != null) return;
+    if (!canShowAds || _interstitial != null || _loadingInterstitial) return;
+    _loadingInterstitial = true;
     InterstitialAd.load(
       adUnitId: AdUnits.interstitial,
       request: request,
       adLoadCallback: InterstitialAdLoadCallback(
-        onAdLoaded: (ad) => _interstitial = ad,
-        onAdFailedToLoad: (error) => debugPrint('Interstitial: $error'),
+        onAdLoaded: (ad) {
+          _loadingInterstitial = false;
+          _interstitial = ad;
+        },
+        onAdFailedToLoad: (error) {
+          _loadingInterstitial = false;
+          debugPrint('Interstitial: $error');
+        },
       ),
     );
   }

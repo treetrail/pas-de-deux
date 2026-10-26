@@ -27,6 +27,10 @@ class SettingsViewModel extends ChangeNotifier {
     ),
   );
 
+  Future<void> setSoundOn(bool on) => update(_settings.copyWith(soundOn: on));
+
+  Future<void> markIntroSeen() => update(_settings.copyWith(introSeen: true));
+
   Future<void> update(Settings settings) async {
     _settings = settings;
     notifyListeners();

@@ -198,4 +198,54 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get resetConsent => 'Einwilligung zurücksetzen (Test)';
+
+  @override
+  String get introTitle1 => 'Zwei Menschen, 36 Fragen';
+
+  @override
+  String get introBody1 =>
+      'Nach einer Idee aus der Studie von Aron et al. (1997): Zwei Menschen stellen sich abwechselnd Fragen, die Stufe für Stufe persönlicher werden. Die Fragen dieser App sind eigene Formulierungen. Ob ihr euch dabei näherkommt, liegt ganz bei euch.';
+
+  @override
+  String get introTitle2 => 'So läuft ein Zug';
+
+  @override
+  String get introBody2 =>
+      'Ihr teilt euch ein Handy. Eine Person beantwortet die Frage, die andere hält das Handy und gibt danach an, wie sehr die Antwort sie berührt hat. Dann tauscht ihr. Die Bewertung ist freiwillig und bleibt verborgen, bis sie bei euren schönsten Momenten auftaucht.';
+
+  @override
+  String get introTitle3 => 'Nehmt euch Zeit';
+
+  @override
+  String get introBody3 =>
+      'Alle 36 Fragen dauern etwa 45 Minuten. Ihr könnt weniger Fragen wählen, Fragen überspringen und jederzeit unterbrechen. Zum Schluss könnt ihr euch vier Minuten lang in die Augen sehen.';
+
+  @override
+  String introPage(int number, int total) {
+    return 'Seite $number von $total';
+  }
+
+  @override
+  String get showIntro => 'Einführung ansehen';
+
+  @override
+  String get lookTitle => 'Der 4-Minuten-Blick';
+
+  @override
+  String get lookOffer =>
+      'Zum Schluss seht ihr euch vier Minuten lang schweigend in die Augen.';
+
+  @override
+  String get lookStart => 'Starten';
+
+  @override
+  String lookRemaining(String time) {
+    return 'Restzeit $time';
+  }
+
+  @override
+  String get lookDone => 'Die vier Minuten sind um.';
+
+  @override
+  String get soundSetting => 'Ton am Ende des Blicks';
 }

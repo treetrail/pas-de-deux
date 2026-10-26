@@ -159,5 +159,36 @@
   "purchaseFailed": "Der Kauf hat nicht geklappt.",
   "aboutTitle": "Über die App",
   "aboutSource": "Nach einer Idee aus der Studie von Aron et al. (1997): „The Experimental Generation of Interpersonal Closeness: A Procedure and Some Preliminary Findings“, Personality and Social Psychology Bulletin 23 (4), 363–377. Die Fragen sind eigene Formulierungen. Die Autoren der Studie stehen in keiner Verbindung zu dieser App.",
-  "resetConsent": "Einwilligung zurücksetzen (Test)"
+  "resetConsent": "Einwilligung zurücksetzen (Test)",
+  "introTitle1": "Zwei Menschen, 36 Fragen",
+  "introBody1": "Nach einer Idee aus der Studie von Aron et al. (1997): Zwei Menschen stellen sich abwechselnd Fragen, die Stufe für Stufe persönlicher werden. Die Fragen dieser App sind eigene Formulierungen. Ob ihr euch dabei näherkommt, liegt ganz bei euch.",
+  "introTitle2": "So läuft ein Zug",
+  "introBody2": "Ihr teilt euch ein Handy. Eine Person beantwortet die Frage, die andere hält das Handy und gibt danach an, wie sehr die Antwort sie berührt hat. Dann tauscht ihr. Die Bewertung ist freiwillig und bleibt verborgen, bis sie bei euren schönsten Momenten auftaucht.",
+  "introTitle3": "Nehmt euch Zeit",
+  "introBody3": "Alle 36 Fragen dauern etwa 45 Minuten. Ihr könnt weniger Fragen wählen, Fragen überspringen und jederzeit unterbrechen. Zum Schluss könnt ihr euch vier Minuten lang in die Augen sehen.",
+  "introPage": "Seite {number} von {total}",
+  "@introPage": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "showIntro": "Einführung ansehen",
+  "lookTitle": "Der 4-Minuten-Blick",
+  "lookOffer": "Zum Schluss seht ihr euch vier Minuten lang schweigend in die Augen.",
+  "lookStart": "Starten",
+  "lookRemaining": "Restzeit {time}",
+  "@lookRemaining": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "lookDone": "Die vier Minuten sind um.",
+  "soundSetting": "Ton am Ende des Blicks"
 }
