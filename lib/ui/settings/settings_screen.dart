@@ -94,6 +94,15 @@ class SettingsScreen extends StatelessWidget {
                   title: Text(l10n.resetConsent),
                   onTap: ads.resetConsent,
                 ),
+              _Header(l10n.dataTitle),
+              ListTile(
+                title: Text(l10n.resetWeights),
+                onTap: () => _resetWeights(context),
+              ),
+              ListTile(
+                title: Text(l10n.resetAll),
+                onTap: () => _resetAll(context),
+              ),
               _Header(l10n.aboutTitle),
               ListTile(
                 title: Text(l10n.showIntro),
@@ -114,6 +123,69 @@ class SettingsScreen extends StatelessWidget {
       ),
     );
   }
+
+  Future<void> _resetWeights(BuildContext context) async {
+    final l10n = AppLocalizations.of(context);
+    if (!await _confirm(
+      context,
+      l10n.resetWeightsQuestion,
+      l10n.resetWeightsBody,
+    )) {
+      return;
+    }
+    await dependencies.games.resetWeights();
+    if (context.mounted) _showDone(context, (l10n) => l10n.resetWeightsDone);
+  }
+
+  /// Deletes everything except the purchase status (Gespeicherte Daten).
+  Future<void> _resetAll(BuildContext context) async {
+    final l10n = AppLocalizations.of(context);
+    if (!await _confirm(context, l10n.resetAllQuestion, l10n.resetAllBody)) {
+      return;
+    }
+    await dependencies.games.deleteAll();
+    await dependencies.settings.reset();
+    if (context.mounted) _showDone(context, (l10n) => l10n.resetAllDone);
+  }
+
+  Future<bool> _confirm(
+    BuildContext context,
+    String question,
+    String body,
+  ) async {
+    final l10n = AppLocalizations.of(context);
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(question),
+        content: Text(body),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: Text(l10n.cancel),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(context, true),
+            child: Text(l10n.confirmReset),
+          ),
+        ],
+      ),
+    );
+    return confirmed ?? false;
+  }
+
+  /// The text is built inside the snack bar, so after "Alle Daten
+  /// zurücksetzen" it already uses the device language.
+  void _showDone(
+    BuildContext context,
+    String Function(AppLocalizations l10n) text,
+  ) => ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Builder(
+        builder: (context) => Text(text(AppLocalizations.of(context))),
+      ),
+    ),
+  );
 }
 
 class _Header extends StatelessWidget {

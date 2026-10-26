@@ -66,5 +66,15 @@
   "lookStart": "Inizia",
   "lookRemaining": "Tempo rimasto {time}",
   "lookDone": "I quattro minuti sono finiti.",
-  "soundSetting": "Suono alla fine dello sguardo"
+  "soundSetting": "Suono alla fine dello sguardo",
+  "dataTitle": "Dati",
+  "resetWeights": "Reimposta i pesi",
+  "resetWeightsQuestion": "Reimpostare i pesi?",
+  "resetWeightsBody": "Le valutazioni precedenti non influenzeranno più quali domande escono.",
+  "resetWeightsDone": "I pesi sono stati reimpostati.",
+  "resetAll": "Reimposta tutti i dati",
+  "resetAllQuestion": "Reimpostare tutti i dati?",
+  "resetAllBody": "Verranno cancellati il tuo nome, le impostazioni, i pesi e una partita interrotta. L'acquisto di «Senza pubblicità» resta valido.",
+  "resetAllDone": "Tutti i dati sono stati cancellati.",
+  "confirmReset": "Reimposta"
 }

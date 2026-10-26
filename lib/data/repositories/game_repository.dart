@@ -45,4 +45,15 @@ class GameRepository {
     await _store.write('lastGame', jsonEncode(game.shown));
     await _store.delete('savedGame');
   }
+
+  /// "Gewichte zurücksetzen": every question starts again at 1.0 (US-13).
+  Future<void> resetWeights() => _store.delete('weights');
+
+  /// Part of "Alle Daten zurücksetzen": the weights, the questions of the
+  /// last game and an interrupted game.
+  Future<void> deleteAll() async {
+    for (final key in ['weights', 'lastGame', 'savedGame']) {
+      await _store.delete(key);
+    }
+  }
 }

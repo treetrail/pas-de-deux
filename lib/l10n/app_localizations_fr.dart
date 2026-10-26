@@ -248,4 +248,36 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get soundSetting => 'Son à la fin du regard';
+
+  @override
+  String get dataTitle => 'Données';
+
+  @override
+  String get resetWeights => 'Réinitialiser les poids';
+
+  @override
+  String get resetWeightsQuestion => 'Réinitialiser les poids ?';
+
+  @override
+  String get resetWeightsBody =>
+      'Les évaluations précédentes n\'influenceront plus les questions qui sortent.';
+
+  @override
+  String get resetWeightsDone => 'Les poids ont été réinitialisés.';
+
+  @override
+  String get resetAll => 'Réinitialiser toutes les données';
+
+  @override
+  String get resetAllQuestion => 'Réinitialiser toutes les données ?';
+
+  @override
+  String get resetAllBody =>
+      'Ton prénom, les réglages, les poids et une partie interrompue seront supprimés. L\'achat de « Sans publicité » est conservé.';
+
+  @override
+  String get resetAllDone => 'Toutes les données ont été supprimées.';
+
+  @override
+  String get confirmReset => 'Réinitialiser';
 }

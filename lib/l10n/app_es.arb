@@ -66,5 +66,15 @@
   "lookStart": "Empezar",
   "lookRemaining": "Tiempo restante {time}",
   "lookDone": "Han pasado los cuatro minutos.",
-  "soundSetting": "Sonido al final de la mirada"
+  "soundSetting": "Sonido al final de la mirada",
+  "dataTitle": "Datos",
+  "resetWeights": "Restablecer los pesos",
+  "resetWeightsQuestion": "¿Restablecer los pesos?",
+  "resetWeightsBody": "Las valoraciones anteriores ya no influirán en qué preguntas salen.",
+  "resetWeightsDone": "Los pesos se han restablecido.",
+  "resetAll": "Restablecer todos los datos",
+  "resetAllQuestion": "¿Restablecer todos los datos?",
+  "resetAllBody": "Se borran tu nombre, los ajustes, los pesos y una partida interrumpida. La compra de «Sin anuncios» se conserva.",
+  "resetAllDone": "Se han borrado todos los datos.",
+  "confirmReset": "Restablecer"
 }

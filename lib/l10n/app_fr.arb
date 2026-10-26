@@ -66,5 +66,15 @@
   "lookStart": "Commencer",
   "lookRemaining": "Temps restant : {time}",
   "lookDone": "Les quatre minutes sont écoulées.",
-  "soundSetting": "Son à la fin du regard"
+  "soundSetting": "Son à la fin du regard",
+  "dataTitle": "Données",
+  "resetWeights": "Réinitialiser les poids",
+  "resetWeightsQuestion": "Réinitialiser les poids ?",
+  "resetWeightsBody": "Les évaluations précédentes n'influenceront plus les questions qui sortent.",
+  "resetWeightsDone": "Les poids ont été réinitialisés.",
+  "resetAll": "Réinitialiser toutes les données",
+  "resetAllQuestion": "Réinitialiser toutes les données ?",
+  "resetAllBody": "Ton prénom, les réglages, les poids et une partie interrompue seront supprimés. L'achat de « Sans publicité » est conservé.",
+  "resetAllDone": "Toutes les données ont été supprimées.",
+  "confirmReset": "Réinitialiser"
 }

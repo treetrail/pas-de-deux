@@ -31,6 +31,10 @@ class SettingsViewModel extends ChangeNotifier {
 
   Future<void> markIntroSeen() => update(_settings.copyWith(introSeen: true));
 
+  /// Part of "Alle Daten zurücksetzen": back to the state of the first start,
+  /// including the introduction.
+  Future<void> reset() => update(const Settings());
+
   Future<void> update(Settings settings) async {
     _settings = settings;
     notifyListeners();

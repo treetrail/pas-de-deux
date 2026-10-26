@@ -247,4 +247,36 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get soundSetting => 'Sound at the end of the look';
+
+  @override
+  String get dataTitle => 'Data';
+
+  @override
+  String get resetWeights => 'Reset weights';
+
+  @override
+  String get resetWeightsQuestion => 'Reset the weights?';
+
+  @override
+  String get resetWeightsBody =>
+      'Earlier ratings will no longer affect which questions come up.';
+
+  @override
+  String get resetWeightsDone => 'The weights have been reset.';
+
+  @override
+  String get resetAll => 'Reset all data';
+
+  @override
+  String get resetAllQuestion => 'Reset all data?';
+
+  @override
+  String get resetAllBody =>
+      'This deletes your name, the settings, the weights and an interrupted game. A purchase of “Ad-free” is kept.';
+
+  @override
+  String get resetAllDone => 'All data has been deleted.';
+
+  @override
+  String get confirmReset => 'Reset';
 }

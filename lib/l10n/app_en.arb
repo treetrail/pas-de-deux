@@ -66,5 +66,15 @@
   "lookStart": "Start",
   "lookRemaining": "Time left {time}",
   "lookDone": "The four minutes are up.",
-  "soundSetting": "Sound at the end of the look"
+  "soundSetting": "Sound at the end of the look",
+  "dataTitle": "Data",
+  "resetWeights": "Reset weights",
+  "resetWeightsQuestion": "Reset the weights?",
+  "resetWeightsBody": "Earlier ratings will no longer affect which questions come up.",
+  "resetWeightsDone": "The weights have been reset.",
+  "resetAll": "Reset all data",
+  "resetAllQuestion": "Reset all data?",
+  "resetAllBody": "This deletes your name, the settings, the weights and an interrupted game. A purchase of “Ad-free” is kept.",
+  "resetAllDone": "All data has been deleted.",
+  "confirmReset": "Reset"
 }

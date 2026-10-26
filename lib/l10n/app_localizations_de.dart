@@ -248,4 +248,36 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get soundSetting => 'Ton am Ende des Blicks';
+
+  @override
+  String get dataTitle => 'Daten';
+
+  @override
+  String get resetWeights => 'Gewichte zurücksetzen';
+
+  @override
+  String get resetWeightsQuestion => 'Gewichte zurücksetzen?';
+
+  @override
+  String get resetWeightsBody =>
+      'Frühere Bewertungen beeinflussen dann nicht mehr, welche Fragen kommen.';
+
+  @override
+  String get resetWeightsDone => 'Die Gewichte sind zurückgesetzt.';
+
+  @override
+  String get resetAll => 'Alle Daten zurücksetzen';
+
+  @override
+  String get resetAllQuestion => 'Alle Daten zurücksetzen?';
+
+  @override
+  String get resetAllBody =>
+      'Gelöscht werden dein Name, die Einstellungen, die Gewichte und eine unterbrochene Partie. Ein Kauf von „Werbefrei“ bleibt erhalten.';
+
+  @override
+  String get resetAllDone => 'Alle Daten sind gelöscht.';
+
+  @override
+  String get confirmReset => 'Zurücksetzen';
 }
