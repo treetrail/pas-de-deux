@@ -279,4 +279,14 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get confirmReset => 'Reimposta';
+
+  @override
+  String get errorTitle => 'Qui qualcosa è andato storto.';
+
+  @override
+  String get errorBody =>
+      'La partita in corso è salvata e si può riprendere dalla schermata iniziale.';
+
+  @override
+  String get errorRestart => 'Chiudi l\'app e riaprila.';
 }

@@ -279,4 +279,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get confirmReset => 'Reset';
+
+  @override
+  String get errorTitle => 'Something went wrong here.';
+
+  @override
+  String get errorBody =>
+      'A game in progress is saved and can be resumed from the start screen.';
+
+  @override
+  String get errorRestart => 'Please close the app and open it again.';
 }

@@ -200,5 +200,8 @@
   "resetAllQuestion": "Alle Daten zurücksetzen?",
   "resetAllBody": "Gelöscht werden dein Name, die Einstellungen, die Gewichte und eine unterbrochene Partie. Ein Kauf von „Werbefrei“ bleibt erhalten.",
   "resetAllDone": "Alle Daten sind gelöscht.",
-  "confirmReset": "Zurücksetzen"
+  "confirmReset": "Zurücksetzen",
+  "errorTitle": "Hier ist etwas schiefgegangen.",
+  "errorBody": "Eine laufende Partie ist gespeichert und lässt sich vom Start aus fortsetzen.",
+  "errorRestart": "Bitte schließe die App und öffne sie neu."
 }

@@ -15,7 +15,7 @@ class Settings {
   factory Settings.fromJson(Map<String, dynamic> json) => Settings(
     appLanguage: json['appLanguage'] as String?,
     secondLanguage: json['secondLanguage'] as String?,
-    stages: (json['stages'] as List).cast<int>(),
+    stages: List<int>.from(json['stages'] as List),
     questionCount: json['questionCount'] as int?,
     ownName: json['ownName'] as String,
     // Missing in settings saved before these options existed.

@@ -47,7 +47,13 @@ class FakeAds extends AdsService {
 class FakeStore extends Fake implements InAppPurchase {
   final updates = StreamController<List<PurchaseDetails>>.broadcast();
   bool failToComplete = false;
+  bool offline = false;
   int completed = 0;
+
+  @override
+  Future<void> restorePurchases({String? applicationUserName}) async {
+    if (offline) throw StateError('offline');
+  }
 
   @override
   Stream<List<PurchaseDetails>> get purchaseStream => updates.stream;
@@ -57,19 +63,21 @@ class FakeStore extends Fake implements InAppPurchase {
 
   @override
   Future<ProductDetailsResponse> queryProductDetails(Set<String> ids) async =>
-      ProductDetailsResponse(
-        productDetails: [
-          ProductDetails(
-            id: PurchaseService.productId,
-            title: 'Werbefrei',
-            description: '',
-            price: '1,99 €',
-            rawPrice: 1.99,
-            currencyCode: 'EUR',
-          ),
-        ],
-        notFoundIDs: const [],
-      );
+      offline
+      ? throw StateError('offline')
+      : ProductDetailsResponse(
+          productDetails: [
+            ProductDetails(
+              id: PurchaseService.productId,
+              title: 'Werbefrei',
+              description: '',
+              price: '1,99 €',
+              rawPrice: 1.99,
+              currencyCode: 'EUR',
+            ),
+          ],
+          notFoundIDs: const [],
+        );
 
   @override
   Future<void> completePurchase(PurchaseDetails purchase) async {

@@ -69,4 +69,23 @@ void main() {
     expect(service.adFree, isFalse);
     expect(store.completed, 0);
   });
+
+  test('shows the store as unavailable if the product fails to load', () async {
+    final offline = PurchaseService(
+      repository: AdFreeRepository(MemoryStore()),
+      store: FakeStore()..offline = true,
+    );
+    await offline.start();
+    await pumpEventQueue();
+
+    expect(offline.state, StoreState.unavailable);
+    expect(offline.price, isNull);
+  });
+
+  test('shows a failed restore', () async {
+    store.offline = true;
+    await service.restore();
+
+    expect(service.state, StoreState.failed);
+  });
 }

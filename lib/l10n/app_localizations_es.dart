@@ -280,4 +280,14 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get confirmReset => 'Restablecer';
+
+  @override
+  String get errorTitle => 'Algo ha salido mal aquí.';
+
+  @override
+  String get errorBody =>
+      'La partida en curso está guardada y se puede continuar desde el inicio.';
+
+  @override
+  String get errorRestart => 'Cierra la app y vuelve a abrirla.';
 }

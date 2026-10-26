@@ -10,32 +10,30 @@ class GameRepository {
 
   final KeyValueStore _store;
 
-  Future<GameState?> loadSavedGame() async {
-    final json = await _store.read('savedGame');
-    return json == null
-        ? null
-        : GameState.fromJson(jsonDecode(json) as Map<String, dynamic>);
-  }
+  Future<GameState?> loadSavedGame() => _store.readJson(
+    'savedGame',
+    (json) => GameState.fromJson(json as Map<String, dynamic>),
+  );
 
   /// Written after every step, so the game survives the app being killed.
   Future<void> saveGame(GameState game) =>
       _store.write('savedGame', jsonEncode(game.toJson()));
 
-  Future<Map<String, double>> loadWeights() async {
-    final json = await _store.read('weights');
-    return json == null
-        ? {}
-        : (jsonDecode(json) as Map<String, dynamic>).map(
-            (id, weight) => MapEntry(id, (weight as num).toDouble()),
-          );
-  }
+  Future<Map<String, double>> loadWeights() async =>
+      await _store.readJson(
+        'weights',
+        (json) => (json as Map<String, dynamic>).map(
+          (id, weight) => MapEntry(id, (weight as num).toDouble()),
+        ),
+      ) ??
+      {};
 
-  Future<Set<String>> loadLastGame() async {
-    final json = await _store.read('lastGame');
-    return json == null
-        ? {}
-        : (jsonDecode(json) as List).cast<String>().toSet();
-  }
+  Future<Set<String>> loadLastGame() async =>
+      await _store.readJson(
+        'lastGame',
+        (json) => {for (final id in json as List) id as String},
+      ) ??
+      {};
 
   /// Applies the ratings (US-13), remembers the shown questions for the next
   /// draw and deletes the saved game together with the second name.

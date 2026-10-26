@@ -8,12 +8,12 @@ class SettingsRepository {
 
   final KeyValueStore _store;
 
-  Future<Settings> load() async {
-    final json = await _store.read('settings');
-    return json == null
-        ? const Settings()
-        : Settings.fromJson(jsonDecode(json) as Map<String, dynamic>);
-  }
+  Future<Settings> load() async =>
+      await _store.readJson(
+        'settings',
+        (json) => Settings.fromJson(json as Map<String, dynamic>),
+      ) ??
+      const Settings();
 
   Future<void> save(Settings settings) =>
       _store.write('settings', jsonEncode(settings.toJson()));

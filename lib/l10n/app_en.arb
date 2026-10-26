@@ -76,5 +76,8 @@
   "resetAllQuestion": "Reset all data?",
   "resetAllBody": "This deletes your name, the settings, the weights and an interrupted game. A purchase of “Ad-free” is kept.",
   "resetAllDone": "All data has been deleted.",
-  "confirmReset": "Reset"
+  "confirmReset": "Reset",
+  "errorTitle": "Something went wrong here.",
+  "errorBody": "A game in progress is saved and can be resumed from the start screen.",
+  "errorRestart": "Please close the app and open it again."
 }
