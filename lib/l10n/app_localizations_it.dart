@@ -247,4 +247,36 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get soundSetting => 'Suono alla fine dello sguardo';
+
+  @override
+  String get dataTitle => 'Dati';
+
+  @override
+  String get resetWeights => 'Reimposta i pesi';
+
+  @override
+  String get resetWeightsQuestion => 'Reimpostare i pesi?';
+
+  @override
+  String get resetWeightsBody =>
+      'Le valutazioni precedenti non influenzeranno più quali domande escono.';
+
+  @override
+  String get resetWeightsDone => 'I pesi sono stati reimpostati.';
+
+  @override
+  String get resetAll => 'Reimposta tutti i dati';
+
+  @override
+  String get resetAllQuestion => 'Reimpostare tutti i dati?';
+
+  @override
+  String get resetAllBody =>
+      'Verranno cancellati il tuo nome, le impostazioni, i pesi e una partita interrotta. L\'acquisto di «Senza pubblicità» resta valido.';
+
+  @override
+  String get resetAllDone => 'Tutti i dati sono stati cancellati.';
+
+  @override
+  String get confirmReset => 'Reimposta';
 }

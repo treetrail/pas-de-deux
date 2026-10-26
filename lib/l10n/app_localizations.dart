@@ -505,6 +505,66 @@ abstract class AppLocalizations {
   /// In de, this message translates to:
   /// **'Ton am Ende des Blicks'**
   String get soundSetting;
+
+  /// No description provided for @dataTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Daten'**
+  String get dataTitle;
+
+  /// No description provided for @resetWeights.
+  ///
+  /// In de, this message translates to:
+  /// **'Gewichte zurücksetzen'**
+  String get resetWeights;
+
+  /// No description provided for @resetWeightsQuestion.
+  ///
+  /// In de, this message translates to:
+  /// **'Gewichte zurücksetzen?'**
+  String get resetWeightsQuestion;
+
+  /// No description provided for @resetWeightsBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Frühere Bewertungen beeinflussen dann nicht mehr, welche Fragen kommen.'**
+  String get resetWeightsBody;
+
+  /// No description provided for @resetWeightsDone.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Gewichte sind zurückgesetzt.'**
+  String get resetWeightsDone;
+
+  /// No description provided for @resetAll.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Daten zurücksetzen'**
+  String get resetAll;
+
+  /// No description provided for @resetAllQuestion.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Daten zurücksetzen?'**
+  String get resetAllQuestion;
+
+  /// No description provided for @resetAllBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Gelöscht werden dein Name, die Einstellungen, die Gewichte und eine unterbrochene Partie. Ein Kauf von „Werbefrei“ bleibt erhalten.'**
+  String get resetAllBody;
+
+  /// No description provided for @resetAllDone.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Daten sind gelöscht.'**
+  String get resetAllDone;
+
+  /// No description provided for @confirmReset.
+  ///
+  /// In de, this message translates to:
+  /// **'Zurücksetzen'**
+  String get confirmReset;
 }
 
 class _AppLocalizationsDelegate

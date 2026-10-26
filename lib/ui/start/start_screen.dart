@@ -92,6 +92,8 @@ class _StartScreenState extends State<StartScreen> {
         builder: (_) => SettingsScreen(dependencies: _dependencies),
       ),
     );
+    // "Alle Daten zurücksetzen" deletes an interrupted game.
+    await _loadSavedGame();
   }
 
   @override

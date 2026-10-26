@@ -190,5 +190,15 @@
     }
   },
   "lookDone": "Die vier Minuten sind um.",
-  "soundSetting": "Ton am Ende des Blicks"
+  "soundSetting": "Ton am Ende des Blicks",
+  "dataTitle": "Daten",
+  "resetWeights": "Gewichte zurücksetzen",
+  "resetWeightsQuestion": "Gewichte zurücksetzen?",
+  "resetWeightsBody": "Frühere Bewertungen beeinflussen dann nicht mehr, welche Fragen kommen.",
+  "resetWeightsDone": "Die Gewichte sind zurückgesetzt.",
+  "resetAll": "Alle Daten zurücksetzen",
+  "resetAllQuestion": "Alle Daten zurücksetzen?",
+  "resetAllBody": "Gelöscht werden dein Name, die Einstellungen, die Gewichte und eine unterbrochene Partie. Ein Kauf von „Werbefrei“ bleibt erhalten.",
+  "resetAllDone": "Alle Daten sind gelöscht.",
+  "confirmReset": "Zurücksetzen"
 }

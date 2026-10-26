@@ -248,4 +248,36 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get soundSetting => 'Sonido al final de la mirada';
+
+  @override
+  String get dataTitle => 'Datos';
+
+  @override
+  String get resetWeights => 'Restablecer los pesos';
+
+  @override
+  String get resetWeightsQuestion => '¿Restablecer los pesos?';
+
+  @override
+  String get resetWeightsBody =>
+      'Las valoraciones anteriores ya no influirán en qué preguntas salen.';
+
+  @override
+  String get resetWeightsDone => 'Los pesos se han restablecido.';
+
+  @override
+  String get resetAll => 'Restablecer todos los datos';
+
+  @override
+  String get resetAllQuestion => '¿Restablecer todos los datos?';
+
+  @override
+  String get resetAllBody =>
+      'Se borran tu nombre, los ajustes, los pesos y una partida interrumpida. La compra de «Sin anuncios» se conserva.';
+
+  @override
+  String get resetAllDone => 'Se han borrado todos los datos.';
+
+  @override
+  String get confirmReset => 'Restablecer';
 }
