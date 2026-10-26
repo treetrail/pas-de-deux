@@ -1,0 +1,47 @@
+{
+  "appPolicies": {
+    "eula": "",
+    "policies": [
+      {
+        "locale": "de_DE",
+        "policyText": "",
+        "policyURL": ""
+      }
+    ]
+  },
+  "identifier": "5A1D2E01",
+  "nonRenewingSubscriptions": [],
+  "products": [
+    {
+      "displayPrice": "1.99",
+      "familyShareable": false,
+      "internalID": "6E3B9A10",
+      "localizations": [
+        {
+          "description": "Entfernt die Werbung dauerhaft.",
+          "displayName": "Werbefrei",
+          "locale": "de_DE"
+        },
+        {
+          "description": "Removes ads for good.",
+          "displayName": "Ad-free",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "ad_free",
+      "referenceName": "Werbefrei",
+      "type": "NonConsumable"
+    }
+  ],
+  "settings": {
+    "_failTransactionsEnabled": false,
+    "_locale": "de_DE",
+    "_storefront": "DEU",
+    "_storeKitErrors": []
+  },
+  "subscriptionGroups": [],
+  "version": {
+    "major": 4,
+    "minor": 0
+  }
+}

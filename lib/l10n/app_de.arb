@@ -1,0 +1,163 @@
+{
+  "@@locale": "de",
+  "appTitle": "Pas de deux",
+  "appSubtitle": "36 Fragen zum Kennenlernen",
+  "newGame": "Neue Partie",
+  "resumeGame": "Partie fortsetzen",
+  "settings": "Einstellungen",
+  "setupTitle": "Partie einstellen",
+  "yourName": "Dein Name",
+  "otherName": "Name deines Gegenübers",
+  "personA": "Person A",
+  "personB": "Person B",
+  "stagesTitle": "Stufen",
+  "stageLabel": "Stufe {number} – {name}: {intro}",
+  "@stageLabel": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      },
+      "intro": {
+        "type": "String"
+      }
+    }
+  },
+  "questionCount": "{count, plural, =1{1 Frage} other{{count} Fragen}} · etwa {minutes} Min.",
+  "@questionCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "distribution": "Verteilung: {value}",
+  "@distribution": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "secondLanguage": "Zweite Sprache",
+  "off": "Aus",
+  "startGame": "Los geht's",
+  "answersFirst": "{answerer} antwortet zuerst. {holder} hält das Handy.",
+  "@answersFirst": {
+    "placeholders": {
+      "answerer": {
+        "type": "String"
+      },
+      "holder": {
+        "type": "String"
+      }
+    }
+  },
+  "answersNow": "Jetzt antwortet {answerer}. Gib das Handy an {holder}.",
+  "@answersNow": {
+    "placeholders": {
+      "answerer": {
+        "type": "String"
+      },
+      "holder": {
+        "type": "String"
+      }
+    }
+  },
+  "next": "Weiter",
+  "skip": "Überspringen",
+  "back": "Zurück",
+  "progress": "{number} von {total}",
+  "@progress": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "progressSemantics": "Frage {number} von {total}",
+  "@progressSemantics": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "ratingPrompt": "{rater}, wie hat dich die Antwort von {answerer} berührt?",
+  "@ratingPrompt": {
+    "placeholders": {
+      "rater": {
+        "type": "String"
+      },
+      "answerer": {
+        "type": "String"
+      }
+    }
+  },
+  "ratingMoved": "Hat mich berührt",
+  "ratingInteresting": "Interessant",
+  "ratingOkay": "Okay",
+  "continueWithoutRating": "Weiter ohne Bewertung",
+  "endGame": "Partie beenden",
+  "endGameQuestion": "Partie beenden?",
+  "endGameBody": "Ihr kommt zum Abschluss mit den bisher gespielten Fragen.",
+  "cancel": "Abbrechen",
+  "confirmEnd": "Beenden",
+  "stageTitle": "Stufe {number}: {name}",
+  "@stageTitle": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "finishTitle": "Eure schönsten Momente",
+  "momentLine": "Die Antwort von {answerer} hat {rater} berührt.",
+  "@momentLine": {
+    "placeholders": {
+      "answerer": {
+        "type": "String"
+      },
+      "rater": {
+        "type": "String"
+      }
+    }
+  },
+  "noMoments": "Schön, dass ihr euch Zeit füreinander genommen habt.",
+  "toStart": "Zum Start",
+  "language": "Sprache",
+  "systemLanguage": "Wie das Gerät",
+  "privacyOptions": "Datenschutz-Optionen",
+  "adFreeTitle": "Werbefrei",
+  "adFreeHint": "Ohne Werbung spielen",
+  "buyAdFree": "Werbefrei für {price}",
+  "@buyAdFree": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "restorePurchases": "Käufe wiederherstellen",
+  "purchasePending": "Kauf wird bearbeitet …",
+  "adFreeActive": "Werbefrei ist aktiv. Danke!",
+  "storeUnavailable": "Der Store ist gerade nicht erreichbar.",
+  "purchaseFailed": "Der Kauf hat nicht geklappt.",
+  "aboutTitle": "Über die App",
+  "aboutSource": "Nach einer Idee aus der Studie von Aron et al. (1997): „The Experimental Generation of Interpersonal Closeness: A Procedure and Some Preliminary Findings“, Personality and Social Psychology Bulletin 23 (4), 363–377. Die Fragen sind eigene Formulierungen. Die Autoren der Studie stehen in keiner Verbindung zu dieser App.",
+  "resetConsent": "Einwilligung zurücksetzen (Test)"
+}

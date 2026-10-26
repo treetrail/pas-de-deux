@@ -1,0 +1,454 @@
+{
+  "version": 1,
+  "stages": [
+    {
+      "stage": 1,
+      "name": {
+        "de": "Leicht",
+        "en": "Light",
+        "es": "Ligero",
+        "it": "Leggero",
+        "fr": "Léger"
+      },
+      "intro": {
+        "de": "zum Warmwerden",
+        "en": "warming up",
+        "es": "para entrar en calor",
+        "it": "per rompere il ghiaccio",
+        "fr": "pour briser la glace"
+      }
+    },
+    {
+      "stage": 2,
+      "name": {
+        "de": "Persönlich",
+        "en": "Personal",
+        "es": "Personal",
+        "it": "Personale",
+        "fr": "Personnel"
+      },
+      "intro": {
+        "de": "Jetzt wird es persönlicher",
+        "en": "getting more personal",
+        "es": "ahora se vuelve más personal",
+        "it": "ora si fa più personale",
+        "fr": "ça devient plus personnel"
+      }
+    },
+    {
+      "stage": 3,
+      "name": {
+        "de": "Tief",
+        "en": "Deep",
+        "es": "Profundo",
+        "it": "Profondo",
+        "fr": "Profond"
+      },
+      "intro": {
+        "de": "für echte Nähe",
+        "en": "for real closeness",
+        "es": "para una cercanía de verdad",
+        "it": "per una vera vicinanza",
+        "fr": "pour une vraie proximité"
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "s1-q01",
+      "stage": 1,
+      "text": {
+        "de": "Du darfst einen Abend mit einem beliebigen Menschen verbringen, lebend oder aus der Geschichte. Wen lädst du ein, und worüber würdet ihr reden?",
+        "en": "You get one evening with anyone you like, living or from history. Who do you invite, and what would you talk about?",
+        "es": "Puedes pasar una velada con cualquier persona, viva o de la historia. ¿A quién invitas y de qué te gustaría hablar?",
+        "it": "Puoi passare una serata con chi vuoi, una persona vivente o del passato. Chi inviti e di cosa vorresti parlare?",
+        "fr": "Tu peux passer une soirée avec la personne de ton choix, vivante ou historique. Qui invites-tu, et de quoi aimerais-tu parler ?"
+      }
+    },
+    {
+      "id": "s1-q02",
+      "stage": 1,
+      "text": {
+        "de": "Stell dir vor, morgen kennt dich das ganze Land. Wofür sollte das sein, und was würde dich daran stören?",
+        "en": "Imagine the whole country knows your name tomorrow. What should you be known for, and what would bother you about it?",
+        "es": "Imagina que mañana todo el país conoce tu nombre. ¿Por qué te gustaría que te conocieran y qué te molestaría de ello?",
+        "it": "Immagina che domani tutto il paese conosca il tuo nome. Per cosa vorresti che ti conoscessero, e cosa ti darebbe fastidio?",
+        "fr": "Imagine que demain, tout le pays connaisse ton nom. Qu'aimerais-tu qu'on retienne de toi, et qu'est-ce qui te dérangerait ?"
+      }
+    },
+    {
+      "id": "s1-q03",
+      "stage": 1,
+      "text": {
+        "de": "Gibt es Gespräche, die du vorher im Kopf durchgehst, etwa ein Telefonat oder eine Sprachnachricht? Erzähl vom letzten Mal.",
+        "en": "Are there conversations you run through in your head beforehand, like a call or a voice message? Describe the last time.",
+        "es": "¿Hay conversaciones que repasas mentalmente antes, como una llamada o un mensaje de voz? Cuenta la última vez.",
+        "it": "Ci sono conversazioni che ripassi mentalmente prima, come una telefonata o un messaggio vocale? Racconta l'ultima volta.",
+        "fr": "Y a-t-il des conversations que tu prépares dans ta tête à l'avance, comme un appel ou un message vocal ? Raconte la dernière fois."
+      }
+    },
+    {
+      "id": "s1-q04",
+      "stage": 1,
+      "text": {
+        "de": "Beschreib einen Tag, an dem einfach alles stimmt, vom Aufwachen bis zum Einschlafen.",
+        "en": "Describe a day where everything feels right, from waking up to falling asleep.",
+        "es": "Describe un día en el que todo encaja, desde que te despiertas hasta que te duermes.",
+        "it": "Descrivi una giornata in cui va tutto per il verso giusto, dal risveglio fino a quando ti addormenti.",
+        "fr": "Décris une journée où tout est comme il faut, du réveil jusqu'au coucher."
+      }
+    },
+    {
+      "id": "s1-q05",
+      "stage": 1,
+      "text": {
+        "de": "Welches Lied singst du mit, wenn dich niemand hört? Und vor wem würdest du dich trauen, es zu singen?",
+        "en": "Which song do you sing along to when nobody can hear you? And who would you dare to sing it for?",
+        "es": "¿Qué canción cantas cuando nadie te oye? ¿Y delante de quién te atreverías a cantarla?",
+        "it": "Quale canzone canti quando nessuno ti sente? E davanti a chi avresti il coraggio di cantarla?",
+        "fr": "Quelle chanson chantes-tu quand personne ne t'entend ? Et devant qui oserais-tu la chanter ?"
+      }
+    },
+    {
+      "id": "s1-q06",
+      "stage": 1,
+      "text": {
+        "de": "Du wirst 90 Jahre alt und darfst ab 30 eines jung halten: deinen Kopf oder deinen Körper. Was wählst du, und warum?",
+        "en": "You'll live to 90 and can keep one thing young from age 30 on: your mind or your body. Which do you choose, and why?",
+        "es": "Vivirás hasta los 90 y, a partir de los 30, puedes mantener joven una sola cosa: tu mente o tu cuerpo. ¿Qué eliges y por qué?",
+        "it": "Vivrai fino a 90 anni e dai 30 in poi puoi mantenere giovane una sola cosa: la mente o il corpo. Cosa scegli e perché?",
+        "fr": "Tu vivras jusqu'à 90 ans et, à partir de 30 ans, tu peux garder jeune une seule chose : ton esprit ou ton corps. Que choisis-tu, et pourquoi ?"
+      }
+    },
+    {
+      "id": "s1-q07",
+      "stage": 1,
+      "text": {
+        "de": "Hast du eine Vorstellung davon, wie dein Leben einmal enden wird, auch wenn du sie selten aussprichst?",
+        "en": "Do you have a picture of how your life will end one day, even if you rarely say it out loud?",
+        "es": "¿Tienes alguna idea de cómo terminará tu vida algún día, aunque casi nunca lo digas en voz alta?",
+        "it": "Hai un'idea di come finirà un giorno la tua vita, anche se lo dici di rado ad alta voce?",
+        "fr": "As-tu une idée de la façon dont ta vie se terminera un jour, même si tu le dis rarement à voix haute ?"
+      }
+    },
+    {
+      "id": "s1-q08",
+      "stage": 1,
+      "text": {
+        "de": "Ratet jeweils drei Dinge, die ihr gemeinsam haben könntet. Danach prüft ihr, wer richtig lag.",
+        "en": "Each of you, guess three things the two of you might share. Then find out who guessed right.",
+        "es": "Cada persona adivina tres cosas que los dos podrían tener en común. Después, los dos comprueban quién acertó.",
+        "it": "Ognuno indovina tre cose che potreste avere in comune. Poi verificate chi ha indovinato.",
+        "fr": "Chacun devine trois choses que vous pourriez avoir en commun. Ensuite, vérifiez qui avait raison."
+      }
+    },
+    {
+      "id": "s1-q09",
+      "stage": 1,
+      "text": {
+        "de": "Woran denkst du, wenn du dir sagst: Da habe ich wirklich Glück gehabt?",
+        "en": "What comes to mind when you think: I really got lucky there?",
+        "es": "¿Qué te viene a la mente cuando piensas: ahí sí que tuve suerte?",
+        "it": "Cosa ti viene in mente quando pensi: lì ho avuto davvero fortuna?",
+        "fr": "À quoi penses-tu quand tu te dis : là, j'ai vraiment eu de la chance ?"
+      }
+    },
+    {
+      "id": "s1-q10",
+      "stage": 1,
+      "text": {
+        "de": "Was aus deiner Kindheit würdest du genauso weitergeben, und was auf keinen Fall?",
+        "en": "What from your upbringing would you pass on just as it was, and what definitely not?",
+        "es": "¿Qué de tu infancia transmitirías tal cual y qué de ninguna manera?",
+        "it": "Cosa della tua infanzia trasmetteresti così com'è, e cosa assolutamente no?",
+        "fr": "Que transmettrais-tu tel quel de ton enfance, et que ne transmettrais-tu surtout pas ?"
+      }
+    },
+    {
+      "id": "s1-q11",
+      "stage": 1,
+      "text": {
+        "de": "Erzähl dein Leben in vier Minuten: die wichtigsten Stationen, Orte und Menschen. Dein Gegenüber achtet auf die Zeit.",
+        "en": "In four minutes, walk the person across from you through your life: the key chapters, places and people. They keep an eye on the clock.",
+        "es": "Cuenta tu vida en cuatro minutos: las etapas, los lugares y las personas más importantes. La otra persona controla el tiempo.",
+        "it": "Racconta la tua vita in quattro minuti: le tappe, i luoghi e le persone più importanti. L'altra persona tiene d'occhio il tempo.",
+        "fr": "Raconte ta vie en quatre minutes : les étapes, les lieux et les personnes qui comptent le plus. L'autre surveille le temps."
+      }
+    },
+    {
+      "id": "s1-q12",
+      "stage": 1,
+      "text": {
+        "de": "Über Nacht bekommst du eine Fähigkeit oder Eigenschaft dazu. Welche wählst du, und was machst du als Erstes damit?",
+        "en": "Overnight, you gain one skill or trait of your choice. Which do you pick, and what's the first thing you do with it?",
+        "es": "De la noche a la mañana obtienes una habilidad o cualidad a tu elección. ¿Cuál eliges y qué es lo primero que haces con ella?",
+        "it": "Da un giorno all'altro ottieni un'abilità o una qualità a tua scelta. Quale scegli, e qual è la prima cosa che ci fai?",
+        "fr": "Du jour au lendemain, tu obtiens un talent ou une qualité de ton choix. Que choisis-tu, et quelle est la première chose que tu en fais ?"
+      }
+    },
+    {
+      "id": "s2-q01",
+      "stage": 2,
+      "text": {
+        "de": "Ein Orakel beantwortet dir genau eine Frage ehrlich, egal worüber. Was fragst du, und vor welcher Antwort hättest du Angst?",
+        "en": "An oracle will answer one question honestly, whatever it's about. What do you ask, and which answer would scare you?",
+        "es": "Un oráculo responde con sinceridad a una sola pregunta, sobre lo que sea. ¿Qué le preguntas y qué respuesta te daría miedo?",
+        "it": "Un oracolo risponde sinceramente a una sola domanda, su qualsiasi cosa. Cosa chiedi, e quale risposta ti farebbe paura?",
+        "fr": "Un oracle répond honnêtement à une seule question, sur n'importe quel sujet. Que lui demandes-tu, et quelle réponse te ferait peur ?"
+      }
+    },
+    {
+      "id": "s2-q02",
+      "stage": 2,
+      "text": {
+        "de": "Was steht schon ewig auf deiner Lebensliste, und was hält dich bisher davon ab?",
+        "en": "What has been on your bucket list forever, and what has held you back so far?",
+        "es": "¿Qué llevas una eternidad queriendo hacer y qué te lo ha impedido hasta ahora?",
+        "it": "Cosa c'è da sempre sulla lista delle cose che vuoi fare nella vita, e cosa ti ha frenato finora?",
+        "fr": "Qu'est-ce qui figure depuis toujours sur la liste des choses que tu veux faire dans ta vie, et qu'est-ce qui te retient encore ?"
+      }
+    },
+    {
+      "id": "s2-q03",
+      "stage": 2,
+      "text": {
+        "de": "Worauf in deinem Leben bist du richtig stolz, auch wenn es kaum jemand weiß?",
+        "en": "What in your life are you truly proud of, even if hardly anyone knows about it?",
+        "es": "¿Qué logro de tu vida te llena de orgullo, aunque casi nadie lo sepa?",
+        "it": "Cosa della tua vita ti riempie davvero d'orgoglio, anche se quasi nessuno lo sa?",
+        "fr": "Qu'as-tu accompli dont tu tires une vraie fierté, même si presque personne ne le sait ?"
+      }
+    },
+    {
+      "id": "s2-q04",
+      "stage": 2,
+      "text": {
+        "de": "Woran merkst du, dass jemand ein echter Freund oder eine echte Freundin ist?",
+        "en": "How can you tell that someone is a true friend?",
+        "es": "¿Cómo sabes que una amistad es verdadera?",
+        "it": "Come capisci che qualcuno è un vero amico o una vera amica?",
+        "fr": "Comment sais-tu que quelqu'un est un véritable ami ou une véritable amie ?"
+      }
+    },
+    {
+      "id": "s2-q05",
+      "stage": 2,
+      "text": {
+        "de": "Wenn du nur eine Erinnerung für immer behalten dürftest: Welche wäre es?",
+        "en": "If you could keep only one memory forever, which would it be?",
+        "es": "Si solo pudieras conservar un recuerdo para siempre, ¿cuál sería?",
+        "it": "Se potessi conservare un solo ricordo per sempre, quale sarebbe?",
+        "fr": "Si tu ne pouvais garder qu'un seul souvenir pour toujours, lequel serait-ce ?"
+      }
+    },
+    {
+      "id": "s2-q06",
+      "stage": 2,
+      "text": {
+        "de": "Welcher Moment in deinem Leben war besonders schwer, und was hat dir damals geholfen?",
+        "en": "Which moment in your life was especially hard, and what helped you get through it?",
+        "es": "¿Qué momento de tu vida fue especialmente duro y qué te ayudó a superarlo?",
+        "it": "Quale momento della tua vita è stato particolarmente difficile, e cosa ti ha aiutato a superarlo?",
+        "fr": "Quel moment de ta vie a été particulièrement difficile, et qu'est-ce qui t'a permis de le traverser ?"
+      }
+    },
+    {
+      "id": "s2-q07",
+      "stage": 2,
+      "text": {
+        "de": "Angenommen, dir bleibt nur noch ein Jahr. Was würdest du ab morgen anders machen, und was genau so lassen?",
+        "en": "Suppose you had only one year left. What would you change starting tomorrow, and what would you keep exactly as it is?",
+        "es": "Imagina que solo te queda un año. ¿Qué cambiarías a partir de mañana y qué dejarías exactamente igual?",
+        "it": "Immagina di avere solo un anno davanti. Cosa cambieresti da domani, e cosa lasceresti esattamente com'è?",
+        "fr": "Imagine qu'il ne te reste qu'un an. Que changerais-tu dès demain, et que garderais-tu exactement pareil ?"
+      }
+    },
+    {
+      "id": "s2-q08",
+      "stage": 2,
+      "text": {
+        "de": "Welche Freundschaft hat dich am meisten geprägt, und warum?",
+        "en": "Which friendship has shaped you the most, and why?",
+        "es": "¿Qué amistad te ha marcado más y por qué?",
+        "it": "Quale amicizia ti ha segnato di più, e perché?",
+        "fr": "Quelle amitié a le plus compté dans ta vie, et pourquoi ?"
+      }
+    },
+    {
+      "id": "s2-q09",
+      "stage": 2,
+      "text": {
+        "de": "Wie zeigst du Zuneigung, und wodurch fühlst du dich selbst am meisten geliebt?",
+        "en": "How do you show affection, and what makes you feel most loved yourself?",
+        "es": "¿Cómo demuestras tu cariño y qué gestos de cariño te llegan más?",
+        "it": "Come dimostri il tuo affetto, e quali gesti d'affetto ti arrivano di più?",
+        "fr": "Comment montres-tu ton affection, et quels gestes te touchent le plus ?"
+      }
+    },
+    {
+      "id": "s2-q10",
+      "stage": 2,
+      "text": {
+        "de": "Nennt abwechselnd Eigenschaften, die euch am anderen bisher gefallen haben, zusammen fünf.",
+        "en": "Take turns naming things you've come to like about each other so far, until you have five.",
+        "es": "Por turnos, cada persona nombra una cualidad que le ha gustado de la otra hasta ahora, cinco en total.",
+        "it": "A turno, ognuno nomina una qualità che finora ha apprezzato nell'altra persona, cinque in tutto.",
+        "fr": "À tour de rôle, citez des qualités que vous avez appréciées chez l'autre jusqu'ici, cinq au total."
+      }
+    },
+    {
+      "id": "s2-q11",
+      "stage": 2,
+      "text": {
+        "de": "Wie ging es bei dir zu Hause zu: eher herzlich, eher kühl, eher laut? Wie blickst du heute auf deine Kindheit?",
+        "en": "What was home like when you were growing up: warm, distant, loud? How do you look back on your childhood today?",
+        "es": "¿Cómo era el ambiente en tu casa durante tu infancia: cálido, distante, ruidoso? ¿Cómo ves hoy esa etapa?",
+        "it": "Com'era l'atmosfera a casa tua durante l'infanzia: calorosa, distante, rumorosa? Come guardi oggi a quel periodo?",
+        "fr": "Quelle était l'ambiance chez toi pendant ton enfance : chaleureuse, distante, bruyante ? Comment vois-tu cette période aujourd'hui ?"
+      }
+    },
+    {
+      "id": "s2-q12",
+      "stage": 2,
+      "text": {
+        "de": "Was hast du von deiner Mutter mitgenommen, oder von der Person, die für dich wie eine Mutter war? Und wie steht ihr heute zueinander?",
+        "en": "What did you take with you from your mother, or from the person who was like a mother to you? And where do the two of you stand today?",
+        "es": "¿Qué te llevaste de tu madre, o de la persona que fue como una madre para ti? ¿Y cómo te llevas hoy con ella?",
+        "it": "Cosa hai preso da tua madre, o dalla persona che è stata come una madre per te? E com'è il vostro rapporto oggi?",
+        "fr": "Qu'as-tu gardé de ta mère, ou de la personne qui a été comme une mère pour toi ? Et où en êtes-vous aujourd'hui ?"
+      }
+    },
+    {
+      "id": "s3-q01",
+      "stage": 3,
+      "text": {
+        "de": "Bildet jeweils drei Sätze, die mit „Wir beide …“ beginnen und gerade jetzt stimmen.",
+        "en": "Each of you, make three sentences that start with “The two of us …” and are true right now.",
+        "es": "Cada persona dice tres frases que empiecen por «Los dos…» y que sean verdad ahora mismo.",
+        "it": "Ognuno formula tre frasi che inizino con «Noi due…» e che siano vere in questo momento.",
+        "fr": "Chacun formule trois phrases qui commencent par « Tous les deux, nous… » et qui sont vraies en ce moment."
+      }
+    },
+    {
+      "id": "s3-q02",
+      "stage": 3,
+      "text": {
+        "de": "Ergänze den Satz: „Am liebsten würde ich mit jemandem … erleben.“",
+        "en": "Finish the sentence: “More than anything, I'd love to experience … with someone.”",
+        "es": "Completa la frase: «Lo que más me gustaría es vivir… con alguien».",
+        "it": "Completa la frase: «Più di ogni altra cosa vorrei vivere… con qualcuno».",
+        "fr": "Complète la phrase : « Plus que tout, j'aimerais vivre… avec quelqu'un. »"
+      }
+    },
+    {
+      "id": "s3-q03",
+      "stage": 3,
+      "text": {
+        "de": "Was müsste ein Mensch über dich wissen, um dir wirklich nahe zu sein?",
+        "en": "What would someone need to know about you to truly be close to you?",
+        "es": "¿Qué tendría que saber alguien de ti para estar realmente cerca de ti?",
+        "it": "Cosa dovrebbe sapere qualcuno di te per esserti davvero vicino?",
+        "fr": "Que faudrait-il savoir sur toi pour être vraiment proche de toi ?"
+      }
+    },
+    {
+      "id": "s3-q04",
+      "stage": 3,
+      "text": {
+        "de": "Was gefällt dir an deinem Gegenüber, das du normalerweise erst viel später aussprechen würdest? Sag es jetzt.",
+        "en": "What do you like about the person across from you that you'd normally keep to yourself until much later? Say it now.",
+        "es": "¿Qué te gusta de la otra persona que normalmente te guardarías hasta mucho más adelante? Dilo ahora.",
+        "it": "Cosa ti piace dell'altra persona che di solito terresti per te fino a molto più avanti? Dillo adesso.",
+        "fr": "Qu'est-ce qui te plaît chez l'autre et que tu garderais normalement pour toi jusqu'à bien plus tard ? Dis-le maintenant."
+      }
+    },
+    {
+      "id": "s3-q05",
+      "stage": 3,
+      "text": {
+        "de": "Erzähl von einer Situation, in der du am liebsten im Boden versunken wärst.",
+        "en": "Tell about a time you wished the ground would swallow you up.",
+        "es": "Cuenta una situación en la que te habría gustado que te tragara la tierra.",
+        "it": "Racconta una situazione in cui avresti voluto sprofondare.",
+        "fr": "Raconte une situation où tu aurais voulu disparaître sous terre."
+      }
+    },
+    {
+      "id": "s3-q06",
+      "stage": 3,
+      "text": {
+        "de": "Wann sind dir zuletzt die Tränen gekommen, und warst du dabei allein?",
+        "en": "When did tears last come to your eyes, and were you alone at the time?",
+        "es": "¿Cuándo se te llenaron los ojos de lágrimas por última vez? ¿Estabas a solas?",
+        "it": "Quando ti sono venute le lacrime agli occhi l'ultima volta, e c'era qualcuno con te?",
+        "fr": "Quand as-tu eu les larmes aux yeux pour la dernière fois, et quelqu'un était-il avec toi ?"
+      }
+    },
+    {
+      "id": "s3-q07",
+      "stage": 3,
+      "text": {
+        "de": "Was ist dir heute an deinem Gegenüber als Erstes positiv aufgefallen?",
+        "en": "What was the first thing you noticed and liked about the person across from you today?",
+        "es": "¿Qué fue lo primero que te gustó hoy de la otra persona?",
+        "it": "Qual è stata la prima cosa che ti è piaciuta oggi dell'altra persona?",
+        "fr": "Quelle est la première chose qui t'a plu chez l'autre aujourd'hui ?"
+      }
+    },
+    {
+      "id": "s3-q08",
+      "stage": 3,
+      "text": {
+        "de": "Gibt es Themen, bei denen für dich der Spaß aufhört? Welche, und warum?",
+        "en": "Are there topics where joking stops for you? Which ones, and why?",
+        "es": "¿Hay temas con los que para ti no se bromea? ¿Cuáles y por qué?",
+        "it": "Ci sono argomenti su cui per te non si scherza? Quali, e perché?",
+        "fr": "Y a-t-il des sujets sur lesquels, pour toi, on ne plaisante pas ? Lesquels, et pourquoi ?"
+      }
+    },
+    {
+      "id": "s3-q09",
+      "stage": 3,
+      "text": {
+        "de": "Gibt es jemanden, dem du etwas Wichtiges noch nie gesagt hast? Was hält dich davon ab?",
+        "en": "Is there someone you've never told something important? What's holding you back?",
+        "es": "¿Hay alguien a quien nunca le hayas dicho algo importante? ¿Qué te lo impide?",
+        "it": "C'è qualcuno a cui non hai mai detto qualcosa di importante? Cosa ti trattiene?",
+        "fr": "Y a-t-il quelqu'un à qui tu n'as jamais dit quelque chose d'important ? Qu'est-ce qui te retient ?"
+      }
+    },
+    {
+      "id": "s3-q10",
+      "stage": 3,
+      "text": {
+        "de": "Du musst deine Wohnung in einer Minute verlassen und darfst nur einen Gegenstand mitnehmen. Alle Menschen und Tiere sind in Sicherheit. Was nimmst du mit, und warum?",
+        "en": "You have one minute to leave your home and may take just one object. Everyone, people and pets, is safe. What do you take, and why?",
+        "es": "Tienes un minuto para salir de casa y solo puedes llevarte un objeto. Todas las personas y los animales están a salvo. ¿Qué te llevas y por qué?",
+        "it": "Hai un minuto per lasciare casa e puoi portare con te un solo oggetto. Persone e animali sono al sicuro. Cosa prendi, e perché?",
+        "fr": "Tu as une minute pour quitter ton logement et tu ne peux emporter qu'un seul objet. Personnes et animaux sont en sécurité. Que prends-tu, et pourquoi ?"
+      }
+    },
+    {
+      "id": "s3-q11",
+      "stage": 3,
+      "text": {
+        "de": "Wer aus deiner Familie würde dir am meisten fehlen? Was macht diesen Menschen so wichtig für dich?",
+        "en": "Who in your family would you miss the most? What makes that person so important to you?",
+        "es": "¿Quién de tu familia te haría más falta? ¿Qué hace que esa persona sea tan importante para ti?",
+        "it": "Chi della tua famiglia ti mancherebbe di più? Cosa rende quella persona così importante per te?",
+        "fr": "Qui, dans ta famille, te manquerait le plus ? Qu'est-ce qui rend cette personne si importante pour toi ?"
+      }
+    },
+    {
+      "id": "s3-q12",
+      "stage": 3,
+      "text": {
+        "de": "Erzähl von etwas, das dich gerade beschäftigt. Danach hörst du zu: Wie würde dein Gegenüber damit umgehen, und wie hast du beim Erzählen gewirkt?",
+        "en": "Share something that's on your mind right now. Then it's your turn to listen: how would the person across from you handle it, and how did you come across while telling it?",
+        "es": "Cuenta algo que te preocupe ahora mismo. Después te toca escuchar: ¿cómo lo manejaría la otra persona y qué impresión dabas al contarlo?",
+        "it": "Racconta qualcosa che ti preoccupa in questo momento. Poi tocca a te ascoltare: come lo affronterebbe l'altra persona, e che impressione davi mentre ne parlavi?",
+        "fr": "Parle de quelque chose qui te préoccupe en ce moment. Ensuite, c'est à toi d'écouter : que ferait l'autre à ta place, et quelle impression donnais-tu en en parlant ?"
+      }
+    }
+  ]
+}

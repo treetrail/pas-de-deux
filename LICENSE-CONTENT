@@ -1,0 +1,18 @@
+Copyright 2026 Christoph Sens. All rights reserved.
+
+The Apache License 2.0 in LICENSE covers the source code only. It does not
+cover the content of the app:
+
+- the questions and stage texts in assets/questions.json,
+- the app texts in lib/l10n/*.arb,
+- sounds, icons, screenshots and store texts.
+
+This content may not be copied, changed or distributed without written
+permission. The name "Pas de deux" is not licensed either (see section 6 of
+the Apache License).
+
+The questions are original wording based on the idea of the study by Aron et
+al. (1997), "The Experimental Generation of Interpersonal Closeness: A
+Procedure and Some Preliminary Findings", Personality and Social Psychology
+Bulletin 23 (4), 363–377. The authors of the study have no connection to this
+app.
