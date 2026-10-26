@@ -280,4 +280,14 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get confirmReset => 'Zurücksetzen';
+
+  @override
+  String get errorTitle => 'Hier ist etwas schiefgegangen.';
+
+  @override
+  String get errorBody =>
+      'Eine laufende Partie ist gespeichert und lässt sich vom Start aus fortsetzen.';
+
+  @override
+  String get errorRestart => 'Bitte schließe die App und öffne sie neu.';
 }

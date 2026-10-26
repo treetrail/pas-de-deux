@@ -76,5 +76,8 @@
   "resetAllQuestion": "¿Restablecer todos los datos?",
   "resetAllBody": "Se borran tu nombre, los ajustes, los pesos y una partida interrumpida. La compra de «Sin anuncios» se conserva.",
   "resetAllDone": "Se han borrado todos los datos.",
-  "confirmReset": "Restablecer"
+  "confirmReset": "Restablecer",
+  "errorTitle": "Algo ha salido mal aquí.",
+  "errorBody": "La partida en curso está guardada y se puede continuar desde el inicio.",
+  "errorRestart": "Cierra la app y vuelve a abrirla."
 }

@@ -53,7 +53,14 @@ class PurchaseService extends ChangeNotifier {
   }
 
   /// "Käufe wiederherstellen" in the settings, as Apple requires.
-  Future<void> restore() => _store.restorePurchases();
+  Future<void> restore() async {
+    try {
+      await _store.restorePurchases();
+    } catch (error) {
+      debugPrint('Restore: $error');
+      _setState(StoreState.failed);
+    }
+  }
 
   @override
   void dispose() {
@@ -62,18 +69,23 @@ class PurchaseService extends ChangeNotifier {
   }
 
   Future<void> _loadProduct() async {
-    if (!await _store.isAvailable()) {
-      _setState(StoreState.unavailable);
-      return;
+    try {
+      if (await _store.isAvailable()) {
+        final response = await _store.queryProductDetails({productId});
+        _product = response.productDetails
+            .where((product) => product.id == productId)
+            .firstOrNull;
+      }
+    } catch (error) {
+      // Otherwise "Werbefrei" would stay in "loading" for good.
+      debugPrint('Load product: $error');
     }
-    final response = await _store.queryProductDetails({productId});
-    _product = response.productDetails
-        .where((product) => product.id == productId)
-        .firstOrNull;
     _setState(_product == null ? StoreState.unavailable : StoreState.ready);
     // On Android, restore quietly after a reinstall. On iOS only on request,
     // because Apple may ask the user to sign in.
-    if (!_adFree && Platform.isAndroid) await _store.restorePurchases();
+    if (_product != null && !_adFree && Platform.isAndroid) {
+      await _store.restorePurchases();
+    }
   }
 
   Future<void> _onPurchases(List<PurchaseDetails> purchases) async {

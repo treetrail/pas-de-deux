@@ -132,7 +132,7 @@ class GameState {
   }
 
   factory GameState.fromJson(Map<String, dynamic> json) => GameState(
-    names: (json['names'] as List).cast<String>(),
+    names: List<String>.from(json['names'] as List),
     firstStarter: json['firstStarter'] as int,
     turns: [
       for (final turn in json['turns'] as List)
@@ -147,9 +147,9 @@ class GameState {
     ],
     reserves: {
       for (final entry in (json['reserves'] as Map<String, dynamic>).entries)
-        int.parse(entry.key): (entry.value as List).cast<String>(),
+        int.parse(entry.key): List<String>.from(entry.value as List),
     },
-    shown: (json['shown'] as List).cast<String>(),
+    shown: List<String>.from(json['shown'] as List),
     turnIndex: json['turn'] as int,
     phase: Phase.values.byName(json['phase'] as String),
     finished: json['finished'] as bool,

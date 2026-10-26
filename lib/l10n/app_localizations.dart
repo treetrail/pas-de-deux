@@ -565,6 +565,24 @@ abstract class AppLocalizations {
   /// In de, this message translates to:
   /// **'Zurücksetzen'**
   String get confirmReset;
+
+  /// No description provided for @errorTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Hier ist etwas schiefgegangen.'**
+  String get errorTitle;
+
+  /// No description provided for @errorBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Eine laufende Partie ist gespeichert und lässt sich vom Start aus fortsetzen.'**
+  String get errorBody;
+
+  /// No description provided for @errorRestart.
+  ///
+  /// In de, this message translates to:
+  /// **'Bitte schließe die App und öffne sie neu.'**
+  String get errorRestart;
 }
 
 class _AppLocalizationsDelegate

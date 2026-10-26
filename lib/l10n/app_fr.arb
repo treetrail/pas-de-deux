@@ -76,5 +76,8 @@
   "resetAllQuestion": "Réinitialiser toutes les données ?",
   "resetAllBody": "Ton prénom, les réglages, les poids et une partie interrompue seront supprimés. L'achat de « Sans publicité » est conservé.",
   "resetAllDone": "Toutes les données ont été supprimées.",
-  "confirmReset": "Réinitialiser"
+  "confirmReset": "Réinitialiser",
+  "errorTitle": "Un problème est survenu ici.",
+  "errorBody": "La partie en cours est enregistrée et peut être reprise depuis l'accueil.",
+  "errorRestart": "Ferme l'app et rouvre-la."
 }

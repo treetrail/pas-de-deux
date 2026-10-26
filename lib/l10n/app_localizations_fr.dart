@@ -280,4 +280,14 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get confirmReset => 'Réinitialiser';
+
+  @override
+  String get errorTitle => 'Un problème est survenu ici.';
+
+  @override
+  String get errorBody =>
+      'La partie en cours est enregistrée et peut être reprise depuis l\'accueil.';
+
+  @override
+  String get errorRestart => 'Ferme l\'app et rouvre-la.';
 }

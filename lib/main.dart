@@ -3,6 +3,7 @@ import 'package:in_app_purchase/in_app_purchase.dart';
 
 import 'app/app.dart';
 import 'app/dependencies.dart';
+import 'app/error_handling.dart';
 import 'data/repositories/ad_free_repository.dart';
 import 'data/repositories/catalog_repository.dart';
 import 'data/repositories/game_repository.dart';
@@ -15,6 +16,7 @@ import 'ui/settings/settings_view_model.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  handleErrors();
   final store = PreferencesStore();
 
   // Listen to the purchase stream before the UI exists (US-17).
