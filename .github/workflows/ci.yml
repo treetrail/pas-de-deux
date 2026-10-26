@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "0 5 * * 1"
+  # By hand, e.g. when main has no dependency graph snapshot after a merge that started no CI run.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  # Shared CI, see https://github.com/christoph-sens/ci-workflows
+  ci:
+    uses: christoph-sens/ci-workflows/.github/workflows/flutter-ci.yml@11c4ac4cef7bb4e022e0f015cfffb98c55895d93 # feat/flutter-ci
+    permissions:
+      contents: read
+      security-events: write # CodeQL results
+    with:
+      # Same version as for local development; it only moves on purpose.
+      flutter-version: 3.47.8
