@@ -108,6 +108,9 @@ class _StartScreenState extends State<StartScreen> {
     final savedGame = _savedGame;
     return Scaffold(
       appBar: AppBar(
+        // A little something for the two of them, without a function.
+        leading: const Center(child: InfinitySign()),
+        leadingWidth: 64,
         actions: [
           IconButton(
             icon: const Icon(Icons.tune),
