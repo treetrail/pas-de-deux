@@ -16,6 +16,7 @@ Future<({SettingsViewModel settings, FakeAds ads})> pumpApp(
   WidgetTester tester, {
   Settings settings = const Settings(appLanguage: 'de'),
   MemoryStore? store,
+  bool settle = true,
 }) async {
   store ??= MemoryStore();
   final settingsViewModel = SettingsViewModel(
@@ -38,6 +39,6 @@ Future<({SettingsViewModel settings, FakeAds ads})> pumpApp(
       ),
     ),
   );
-  await tester.pumpAndSettle();
+  if (settle) await tester.pumpAndSettle();
   return (settings: settingsViewModel, ads: ads);
 }

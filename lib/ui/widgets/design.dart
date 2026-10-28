@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import '../../app/theme.dart';
@@ -5,19 +7,35 @@ import '../../domain/game.dart';
 
 /// Two circles in the colors of the two people, overlapping in plum, with
 /// "36" where they meet. Decoration only.
+///
+/// The animations play the opening: [dance] brings the circles in, turning
+/// around each other, [meet] fills the overlap, [digits] shows "36". Without
+/// them the logo stands still.
 class Logo extends StatelessWidget {
-  const Logo({super.key, this.width = 210});
+  const Logo({
+    super.key,
+    this.width = 210,
+    this.dance = kAlwaysCompleteAnimation,
+    this.meet = kAlwaysCompleteAnimation,
+    this.digits = kAlwaysCompleteAnimation,
+  });
 
   final double width;
+  final Animation<double> dance;
+  final Animation<double> meet;
+  final Animation<double> digits;
 
   @override
   Widget build(BuildContext context) => ExcludeSemantics(
     child: CustomPaint(
       size: Size(width, width * 150 / 210),
       painter: _LogoPainter(
+        dance: dance,
+        meet: meet,
+        digits: digits,
         people: Palette.dawn.people,
         overlap: Palette.dawn.primary,
-        digits: TextStyle(
+        digitStyle: TextStyle(
           fontFamily: AppTheme.serif,
           fontSize: width * 34 / 210,
           color: Palette.dawn.ground,
@@ -29,73 +47,131 @@ class Logo extends StatelessWidget {
 
 class _LogoPainter extends CustomPainter {
   _LogoPainter({
+    required this.dance,
+    required this.meet,
+    required this.digits,
     required this.people,
     required this.overlap,
-    required this.digits,
-  });
+    required this.digitStyle,
+  }) : super(repaint: Listenable.merge([dance, meet, digits]));
 
+  final Animation<double> dance;
+  final Animation<double> meet;
+  final Animation<double> digits;
   final List<Color> people;
   final Color overlap;
-  final TextStyle digits;
+  final TextStyle digitStyle;
 
   @override
   void paint(Canvas canvas, Size size) {
     final unit = size.width / 210;
     final radius = 62 * unit;
-    final left = Offset(75 * unit, size.height / 2);
-    final right = Offset(135 * unit, size.height / 2);
-    final shared = Path.combine(
-      PathOperation.intersect,
-      Path()..addOval(Rect.fromCircle(center: left, radius: radius)),
-      Path()..addOval(Rect.fromCircle(center: right, radius: radius)),
-    );
-    canvas.drawPath(shared, Paint()..color = overlap);
-    for (final (center, color) in [(left, people[0]), (right, people[1])]) {
-      canvas.drawCircle(
-        center,
-        radius,
-        Paint()
-          ..style = PaintingStyle.stroke
-          ..strokeWidth = 2.5 * unit
-          ..color = color,
-      );
+    final center = size.center(Offset.zero);
+    final left = Offset(75 * unit, center.dy);
+    final right = Offset(135 * unit, center.dy);
+
+    void around(double angle, double scale, void Function() draw) {
+      canvas
+        ..save()
+        ..translate(center.dx, center.dy)
+        ..rotate(angle)
+        ..scale(scale)
+        ..translate(-center.dx, -center.dy);
+      draw();
+      canvas.restore();
     }
-    final text = TextPainter(
-      text: TextSpan(text: '36', style: digits),
-      textDirection: TextDirection.ltr,
-    )..layout();
-    text.paint(
-      canvas,
-      Offset(size.width / 2, size.height / 2) -
-          Offset(text.width / 2, text.height / 2),
-    );
+
+    final meeting = meet.value;
+    if (meeting > 0) {
+      final shared = Path.combine(
+        PathOperation.intersect,
+        Path()..addOval(Rect.fromCircle(center: left, radius: radius)),
+        Path()..addOval(Rect.fromCircle(center: right, radius: radius)),
+      );
+      around(0, meeting, () {
+        canvas.drawPath(
+          shared,
+          Paint()..color = overlap.withValues(alpha: meeting.clamp(0, 1)),
+        );
+      });
+    }
+
+    // Half a turn and more, while the two come closer.
+    final apart = 1 - dance.value;
+    final shift = Offset(78 * unit * apart, 0);
+    final alpha = (dance.value * 4).clamp(0.0, 1.0);
+    around(-200 / 180 * pi * apart, 1, () {
+      for (final (at, color) in [
+        (left - shift, people[0]),
+        (right + shift, people[1]),
+      ]) {
+        canvas.drawCircle(
+          at,
+          radius,
+          Paint()
+            ..style = PaintingStyle.stroke
+            ..strokeWidth = 2.5 * unit
+            ..color = color.withValues(alpha: alpha),
+        );
+      }
+    });
+
+    if (digits.value > 0) {
+      final text = TextPainter(
+        text: TextSpan(
+          text: '36',
+          style: digitStyle.copyWith(
+            color: digitStyle.color!.withValues(alpha: digits.value),
+          ),
+        ),
+        textDirection: TextDirection.ltr,
+      )..layout();
+      text.paint(canvas, center - Offset(text.width / 2, text.height / 2));
+    }
   }
 
   @override
   bool shouldRepaint(_LogoPainter old) =>
-      old.people != people || old.overlap != overlap || old.digits != digits;
+      old.dance != dance ||
+      old.meet != meet ||
+      old.digits != digits ||
+      old.people != people ||
+      old.overlap != overlap ||
+      old.digitStyle != digitStyle;
 }
 
 /// A small infinity sign, one loop in each person's color. Decoration only,
 /// it does nothing.
+///
+/// [left] and [right] draw the loops in the opening animation.
 class InfinitySign extends StatelessWidget {
-  const InfinitySign({super.key, this.size = 26});
+  const InfinitySign({
+    super.key,
+    this.size = 26,
+    this.left = kAlwaysCompleteAnimation,
+    this.right = kAlwaysCompleteAnimation,
+  });
 
   final double size;
+  final Animation<double> left;
+  final Animation<double> right;
 
   @override
   Widget build(BuildContext context) => ExcludeSemantics(
     child: CustomPaint(
       size: Size.square(size),
-      painter: _InfinityPainter(Palette.of(context).people),
+      painter: _InfinityPainter(Palette.of(context).people, left, right),
     ),
   );
 }
 
 class _InfinityPainter extends CustomPainter {
-  _InfinityPainter(this.people);
+  _InfinityPainter(this.people, this.left, this.right)
+    : super(repaint: Listenable.merge([left, right]));
 
   final List<Color> people;
+  final Animation<double> left;
+  final Animation<double> right;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -105,20 +181,31 @@ class _InfinityPainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.6
       ..strokeCap = StrokeCap.round;
-    final left = Path()
+    final leftLoop = Path()
       ..moveTo(12, 12)
       ..cubicTo(10, 8.5, 3.5, 8, 3.5, 12)
       ..cubicTo(3.5, 16, 10, 15.5, 12, 12);
-    final right = Path()
+    final rightLoop = Path()
       ..moveTo(12, 12)
       ..cubicTo(14, 15.5, 20.5, 16, 20.5, 12)
       ..cubicTo(20.5, 8, 14, 8.5, 12, 12);
-    canvas.drawPath(left, stroke..color = people[0]);
-    canvas.drawPath(right, stroke..color = people[1]);
+    for (final (path, share, color) in [
+      (leftLoop, left.value, people[0]),
+      (rightLoop, right.value, people[1]),
+    ]) {
+      if (share <= 0) continue;
+      for (final metric in path.computeMetrics()) {
+        canvas.drawPath(
+          metric.extractPath(0, metric.length * share),
+          stroke..color = color,
+        );
+      }
+    }
   }
 
   @override
-  bool shouldRepaint(_InfinityPainter old) => old.people != people;
+  bool shouldRepaint(_InfinityPainter old) =>
+      old.people != people || old.left != left || old.right != right;
 }
 
 /// The initial of a person in their color: filled for who acts, a ring for
