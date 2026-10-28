@@ -79,5 +79,9 @@
   "confirmReset": "Réinitialiser",
   "errorTitle": "Un problème est survenu ici.",
   "errorBody": "La partie en cours est enregistrée et peut être reprise depuis l'accueil.",
-  "errorRestart": "Ferme l'app et rouvre-la."
+  "errorRestart": "Ferme l'app et rouvre-la.",
+  "startTagline": "Un téléphone. Deux personnes. Environ 45 minutes.",
+  "ratingHidden": "Reste cachée jusqu'à vos plus beaux moments.",
+  "lookPrompt": "Regardez-vous dans les yeux.",
+  "stageNumber": "Niveau {number}"
 }

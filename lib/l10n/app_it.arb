@@ -79,5 +79,9 @@
   "confirmReset": "Reimposta",
   "errorTitle": "Qui qualcosa è andato storto.",
   "errorBody": "La partita in corso è salvata e si può riprendere dalla schermata iniziale.",
-  "errorRestart": "Chiudi l'app e riaprila."
+  "errorRestart": "Chiudi l'app e riaprila.",
+  "startTagline": "Un telefono. Due persone. Circa 45 minuti.",
+  "ratingHidden": "Resta nascosta fino ai vostri momenti più belli.",
+  "lookPrompt": "Guardatevi negli occhi.",
+  "stageNumber": "Livello {number}"
 }

@@ -79,5 +79,9 @@
   "confirmReset": "Restablecer",
   "errorTitle": "Algo ha salido mal aquí.",
   "errorBody": "La partida en curso está guardada y se puede continuar desde el inicio.",
-  "errorRestart": "Cierra la app y vuelve a abrirla."
+  "errorRestart": "Cierra la app y vuelve a abrirla.",
+  "startTagline": "Un teléfono. Dos personas. Unos 45 minutos.",
+  "ratingHidden": "Queda oculta hasta los momentos más bonitos.",
+  "lookPrompt": "Mirarse a los ojos, en silencio.",
+  "stageNumber": "Nivel {number}"
 }

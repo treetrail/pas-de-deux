@@ -7,6 +7,9 @@ cover the content of the app:
 - the app texts in lib/l10n/*.arb,
 - sounds, icons, screenshots and store texts.
 
+The fonts in assets/fonts (Fraunces and Figtree) are not part of this content:
+they are under the SIL Open Font License 1.1, see the OFL files next to them.
+
 This content may not be copied, changed or distributed without written
 permission. The name "Pas de deux" is not licensed either (see section 6 of
 the Apache License).

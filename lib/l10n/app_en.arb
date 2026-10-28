@@ -79,5 +79,9 @@
   "confirmReset": "Reset",
   "errorTitle": "Something went wrong here.",
   "errorBody": "A game in progress is saved and can be resumed from the start screen.",
-  "errorRestart": "Please close the app and open it again."
+  "errorRestart": "Please close the app and open it again.",
+  "startTagline": "One phone. Two people. About 45 minutes.",
+  "ratingHidden": "Stays hidden until your best moments.",
+  "lookPrompt": "Look into each other's eyes.",
+  "stageNumber": "Level {number}"
 }

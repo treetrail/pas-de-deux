@@ -69,7 +69,10 @@ void main() {
     // question leads to the start.
     await tester.binding.handlePopRoute();
     await tester.pumpAndSettle();
-    expect(find.text('Partie fortsetzen'), findsOneWidget);
+    expect(
+      find.textContaining('Partie fortsetzen', findRichText: true),
+      findsOneWidget,
+    );
     await openSettings(tester);
 
     await tapEntry(tester, 'Alle Daten zurücksetzen');
@@ -83,6 +86,9 @@ void main() {
     await tester.binding.handlePopRoute();
     await tester.pumpAndSettle();
     expect(find.text('New game'), findsOneWidget);
-    expect(find.text('Resume game'), findsNothing);
+    expect(
+      find.textContaining('Resume game', findRichText: true),
+      findsNothing,
+    );
   });
 }

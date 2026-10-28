@@ -3,7 +3,7 @@
     "short_name": "Pas de deux",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#FFF8F8",
+    "background_color": "#F7EDE8",
     "theme_color": "#8C3B5E",
     "description": "36 Fragen zum Kennenlernen",
     "orientation": "portrait-primary",
