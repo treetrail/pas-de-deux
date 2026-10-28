@@ -1,6 +1,8 @@
 // Offline cache of the web app. Network first, so a new version arrives as
 // soon as there is a connection; without one, the last version from the
-// cache starts.
+// cache starts. GitHub Pages lets browsers keep files for ten minutes, so
+// every request asks the server whether the file changed ("no-cache"); an
+// unchanged file costs only a short 304 answer.
 const cacheName = "pas-de-deux";
 
 // Files the app only loads later, possibly when there is no connection:
@@ -13,11 +15,13 @@ const later = [
   "assets/shaders/stretch_effect.frag",
 ];
 
+const fresh = (url) => new Request(url, { cache: "no-cache" });
+
 self.addEventListener("install", (event) => {
   self.skipWaiting();
   event.waitUntil(
     caches.open(cacheName).then((cache) =>
-      Promise.all(later.map((url) => cache.add(url).catch(() => {}))),
+      Promise.all(later.map((url) => cache.add(fresh(url)).catch(() => {}))),
     ),
   );
 });
@@ -28,9 +32,10 @@ self.addEventListener("fetch", (event) => {
   const request = event.request;
   if (request.method !== "GET" || new URL(request.url).origin !== location.origin) return;
   event.respondWith(
-    fetch(request)
+    // A navigation request can't be copied with new options, its URL can.
+    fetch(request.mode === "navigate" ? request.url : request, { cache: "no-cache" })
       .then((response) => {
-        if (response.ok) {
+        if (response.status === 200) {
           const copy = response.clone();
           caches.open(cacheName).then((cache) => cache.put(request, copy));
         }
@@ -52,7 +57,7 @@ self.addEventListener("message", (event) => {
     caches.open(cacheName).then((cache) =>
       Promise.all(
         event.data.urls.map(async (url) => {
-          if (!(await cache.match(url))) await cache.add(url).catch(() => {});
+          if (!(await cache.match(url))) await cache.add(fresh(url)).catch(() => {});
         }),
       ),
     ),
