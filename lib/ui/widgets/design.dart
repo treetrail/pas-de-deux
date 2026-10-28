@@ -76,6 +76,51 @@ class _LogoPainter extends CustomPainter {
       old.people != people || old.overlap != overlap || old.digits != digits;
 }
 
+/// A small infinity sign, one loop in each person's color. Decoration only,
+/// it does nothing.
+class InfinitySign extends StatelessWidget {
+  const InfinitySign({super.key, this.size = 26});
+
+  final double size;
+
+  @override
+  Widget build(BuildContext context) => ExcludeSemantics(
+    child: CustomPaint(
+      size: Size.square(size),
+      painter: _InfinityPainter(Palette.of(context).people),
+    ),
+  );
+}
+
+class _InfinityPainter extends CustomPainter {
+  _InfinityPainter(this.people);
+
+  final List<Color> people;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    // Drawn on a 24 × 24 grid, like the icons beside it.
+    canvas.scale(size.width / 24);
+    final stroke = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.6
+      ..strokeCap = StrokeCap.round;
+    final left = Path()
+      ..moveTo(12, 12)
+      ..cubicTo(10, 8.5, 3.5, 8, 3.5, 12)
+      ..cubicTo(3.5, 16, 10, 15.5, 12, 12);
+    final right = Path()
+      ..moveTo(12, 12)
+      ..cubicTo(14, 15.5, 20.5, 16, 20.5, 12)
+      ..cubicTo(20.5, 8, 14, 8.5, 12, 12);
+    canvas.drawPath(left, stroke..color = people[0]);
+    canvas.drawPath(right, stroke..color = people[1]);
+  }
+
+  @override
+  bool shouldRepaint(_InfinityPainter old) => old.people != people;
+}
+
 /// The initial of a person in their color: filled for who acts, a ring for
 /// who waits.
 class PersonAvatar extends StatelessWidget {
