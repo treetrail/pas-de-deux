@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 
@@ -18,6 +20,7 @@ import 'ui/settings/settings_view_model.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   handleErrors();
+  LicenseRegistry.addLicense(_fontLicenses);
   final store = PreferencesStore();
 
   // Listen to the purchase stream before the UI exists (US-17).
@@ -50,4 +53,13 @@ Future<void> main() async {
   // The start screen asks for consent, after the introduction on the first
   // start.
   runApp(PasDeDeuxApp(dependencies: dependencies));
+}
+
+/// The bundled fonts are under the SIL Open Font License, which asks for the
+/// license to travel with them.
+Stream<LicenseEntry> _fontLicenses() async* {
+  for (final font in ['Fraunces', 'Figtree']) {
+    final text = await rootBundle.loadString('assets/fonts/$font-OFL.txt');
+    yield LicenseEntryWithLineBreaks([font], text);
+  }
 }

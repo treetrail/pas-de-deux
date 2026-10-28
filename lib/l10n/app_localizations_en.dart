@@ -289,4 +289,18 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get errorRestart => 'Please close the app and open it again.';
+
+  @override
+  String get startTagline => 'One phone. Two people. About 45 minutes.';
+
+  @override
+  String get ratingHidden => 'Stays hidden until your best moments.';
+
+  @override
+  String get lookPrompt => 'Look into each other\'s eyes.';
+
+  @override
+  String stageNumber(int number) {
+    return 'Level $number';
+  }
 }

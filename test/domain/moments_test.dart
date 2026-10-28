@@ -49,7 +49,7 @@ void main() {
         [null, Rating.moved],
       ]),
     );
-    expect(moments[0].moved, [(answerer: 'Lena', rater: 'Max')]);
-    expect(moments[1].moved, [(answerer: 'Lena', rater: 'Max')]);
+    expect(moments[0].moved, [(answerer: 'Lena', rater: 'Max', person: 0)]);
+    expect(moments[1].moved, [(answerer: 'Lena', rater: 'Max', person: 0)]);
   });
 }

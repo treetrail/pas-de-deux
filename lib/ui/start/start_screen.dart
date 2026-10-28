@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../app/dependencies.dart';
 import '../../app/features.dart';
+import '../../app/theme.dart';
 import '../../data/services/purchase_service.dart';
 import '../../domain/game.dart';
 import '../../l10n/app_localizations.dart';
@@ -13,6 +14,7 @@ import '../intro/intro_screen.dart';
 import '../settings/settings_screen.dart';
 import '../setup/setup_screen.dart';
 import '../widgets/banner_slot.dart';
+import '../widgets/design.dart';
 
 /// The start screen opens every other screen and comes back here. On the
 /// first start the introduction comes first (US-02), then the consent
@@ -101,61 +103,113 @@ class _StartScreenState extends State<StartScreen> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final textTheme = Theme.of(context).textTheme;
+    final palette = Palette.of(context);
     final purchases = _dependencies.purchases;
     final savedGame = _savedGame;
     return Scaffold(
       appBar: AppBar(
         actions: [
           IconButton(
-            icon: const Icon(Icons.settings_outlined),
+            icon: const Icon(Icons.tune),
             tooltip: l10n.settings,
             onPressed: _openSettings,
           ),
+          const SizedBox(width: 8),
         ],
       ),
       body: SafeArea(
-        child: Center(
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.all(32),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Text(
-                  l10n.appTitle,
-                  textAlign: TextAlign.center,
-                  style: textTheme.displayMedium,
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  l10n.appSubtitle,
-                  textAlign: TextAlign.center,
-                  style: textTheme.titleMedium,
-                ),
-                const SizedBox(height: 48),
-                FilledButton(onPressed: _setUp, child: Text(l10n.newGame)),
-                if (savedGame != null) ...[
-                  const SizedBox(height: 12),
-                  OutlinedButton(
-                    onPressed: () => _play(savedGame),
-                    child: Text(l10n.resumeGame),
-                  ),
-                ],
-                ListenableBuilder(
-                  listenable: purchases,
-                  builder: (context, _) =>
-                      !storeFeatures ||
-                          purchases.adFree ||
-                          purchases.state == StoreState.unavailable
-                      ? const SizedBox.shrink()
-                      : Padding(
-                          padding: const EdgeInsets.only(top: 24),
-                          child: TextButton(
-                            onPressed: _openSettings,
-                            child: Text(l10n.adFreeHint),
+        child: LayoutBuilder(
+          builder: (context, constraints) => SingleChildScrollView(
+            padding: const EdgeInsets.fromLTRB(28, 0, 28, 32),
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                minHeight: constraints.maxHeight - 32,
+              ),
+              child: Center(
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 440),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Column(
+                        children: [
+                          const SizedBox(height: 24),
+                          const Logo(),
+                          const SizedBox(height: 28),
+                          Text(
+                            l10n.appTitle,
+                            textAlign: TextAlign.center,
+                            style: textTheme.displayMedium,
                           ),
-                        ),
+                          const SizedBox(height: 10),
+                          Text(
+                            l10n.appSubtitle,
+                            textAlign: TextAlign.center,
+                            style: textTheme.bodyLarge?.copyWith(
+                              color: palette.muted,
+                            ),
+                          ),
+                          const SizedBox(height: 48),
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          FilledButton(
+                            onPressed: _setUp,
+                            child: Text(l10n.newGame),
+                          ),
+                          if (savedGame != null) ...[
+                            const SizedBox(height: 12),
+                            OutlinedButton(
+                              onPressed: () => _play(savedGame),
+                              child: Text.rich(
+                                TextSpan(
+                                  text: l10n.resumeGame,
+                                  children: [
+                                    TextSpan(
+                                      text:
+                                          ' · ${l10n.progress(savedGame.turnIndex + 1, savedGame.turns.length)}',
+                                      style: TextStyle(
+                                        color: palette.muted,
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                          ListenableBuilder(
+                            listenable: purchases,
+                            builder: (context, _) =>
+                                !storeFeatures ||
+                                    purchases.adFree ||
+                                    purchases.state == StoreState.unavailable
+                                ? const SizedBox.shrink()
+                                : Padding(
+                                    padding: const EdgeInsets.only(top: 12),
+                                    child: TextButton(
+                                      onPressed: _openSettings,
+                                      child: Text(l10n.adFreeHint),
+                                    ),
+                                  ),
+                          ),
+                          const SizedBox(height: 26),
+                          Text(
+                            l10n.startTagline,
+                            textAlign: TextAlign.center,
+                            style: textTheme.bodyMedium?.copyWith(
+                              color: palette.muted,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-              ],
+              ),
             ),
           ),
         ),

@@ -203,5 +203,16 @@
   "confirmReset": "Zurücksetzen",
   "errorTitle": "Hier ist etwas schiefgegangen.",
   "errorBody": "Eine laufende Partie ist gespeichert und lässt sich vom Start aus fortsetzen.",
-  "errorRestart": "Bitte schließe die App und öffne sie neu."
+  "errorRestart": "Bitte schließe die App und öffne sie neu.",
+  "startTagline": "Ein Handy. Zwei Menschen. Etwa 45 Minuten.",
+  "ratingHidden": "Bleibt verborgen bis zu euren schönsten Momenten.",
+  "lookPrompt": "Seht euch in die Augen.",
+  "stageNumber": "Stufe {number}",
+  "@stageNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  }
 }

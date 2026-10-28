@@ -583,6 +583,30 @@ abstract class AppLocalizations {
   /// In de, this message translates to:
   /// **'Bitte schließe die App und öffne sie neu.'**
   String get errorRestart;
+
+  /// No description provided for @startTagline.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein Handy. Zwei Menschen. Etwa 45 Minuten.'**
+  String get startTagline;
+
+  /// No description provided for @ratingHidden.
+  ///
+  /// In de, this message translates to:
+  /// **'Bleibt verborgen bis zu euren schönsten Momenten.'**
+  String get ratingHidden;
+
+  /// No description provided for @lookPrompt.
+  ///
+  /// In de, this message translates to:
+  /// **'Seht euch in die Augen.'**
+  String get lookPrompt;
+
+  /// No description provided for @stageNumber.
+  ///
+  /// In de, this message translates to:
+  /// **'Stufe {number}'**
+  String stageNumber(int number);
 }
 
 class _AppLocalizationsDelegate

@@ -290,4 +290,18 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get errorRestart => 'Cierra la app y vuelve a abrirla.';
+
+  @override
+  String get startTagline => 'Un teléfono. Dos personas. Unos 45 minutos.';
+
+  @override
+  String get ratingHidden => 'Queda oculta hasta los momentos más bonitos.';
+
+  @override
+  String get lookPrompt => 'Mirarse a los ojos, en silencio.';
+
+  @override
+  String stageNumber(int number) {
+    return 'Nivel $number';
+  }
 }

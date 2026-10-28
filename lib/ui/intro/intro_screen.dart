@@ -55,14 +55,19 @@ class _IntroScreenState extends State<IntroScreen> {
         if (didPop) widget.settings.markIntroSeen();
       },
       child: Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          actions: [TextButton(onPressed: _finish, child: Text(l10n.skip))],
-        ),
         body: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              // In the body rather than the app bar, so it may wrap at large
+              // font sizes.
+              Align(
+                alignment: Alignment.centerRight,
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+                  child: TextButton(onPressed: _finish, child: Text(l10n.skip)),
+                ),
+              ),
               Expanded(
                 child: PageView(
                   controller: _pages,
@@ -110,9 +115,9 @@ class _IntroPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(title, style: textTheme.headlineMedium),
+          Text(title, style: textTheme.displaySmall),
           const SizedBox(height: 24),
-          Text(body, style: textTheme.titleMedium),
+          Text(body, style: textTheme.bodyLarge),
         ],
       ),
     );

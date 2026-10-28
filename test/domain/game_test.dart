@@ -55,9 +55,11 @@ void main() {
       expect((first.answerer, first.holder), (starter, other));
       expect(first.isFirstAnswer, isTrue);
       expect((first.number, first.total), (1, 10));
+      expect((first.person, first.stage), (game.starterOf(0), 1));
 
       final firstRating = game.next().step as RatingStep;
       expect((firstRating.rater, firstRating.answerer), (other, starter));
+      expect(firstRating.person, 1 - game.starterOf(0));
 
       final second = game.next().rate(Rating.moved).step as AnswerStep;
       expect((second.answerer, second.holder), (other, starter));

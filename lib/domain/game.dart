@@ -42,8 +42,21 @@ final class StageIntroStep extends GameStep {
   final int stage;
 }
 
-final class AnswerStep extends GameStep {
+/// A step within a turn: who acts (an index into [GameState.names], so the
+/// screen can give each person a color) and the stage of the question.
+sealed class TurnStep extends GameStep {
+  const TurnStep({required this.stage, required this.person});
+
+  final int stage;
+
+  /// The person who answers or rates.
+  final int person;
+}
+
+final class AnswerStep extends TurnStep {
   const AnswerStep({
+    required super.stage,
+    required super.person,
     required this.questionId,
     required this.answerer,
     required this.holder,
@@ -64,8 +77,10 @@ final class AnswerStep extends GameStep {
   final bool canSkip;
 }
 
-final class RatingStep extends GameStep {
+final class RatingStep extends TurnStep {
   const RatingStep({
+    required super.stage,
+    required super.person,
     required this.questionId,
     required this.rater,
     required this.answerer,
@@ -177,38 +192,32 @@ class GameState {
   GameStep get step {
     if (finished) return const FinishedStep();
     final turn = turns[turnIndex];
-    final starter = names[starterOf(turnIndex)];
-    final other = names[1 - starterOf(turnIndex)];
+    final starter = starterOf(turnIndex);
+    final other = 1 - starter;
+    AnswerStep answer(int answerer) => AnswerStep(
+      stage: turn.stage,
+      person: answerer,
+      questionId: turn.questionId,
+      answerer: names[answerer],
+      holder: names[1 - answerer],
+      isFirstAnswer: answerer == starter,
+      number: turnIndex + 1,
+      total: turns.length,
+      canSkip: !turn.isRated,
+    );
+    RatingStep rating(int rater) => RatingStep(
+      stage: turn.stage,
+      person: rater,
+      questionId: turn.questionId,
+      rater: names[rater],
+      answerer: names[1 - rater],
+    );
     return switch (phase) {
       Phase.stageIntro => StageIntroStep(turn.stage),
-      Phase.firstAnswer => AnswerStep(
-        questionId: turn.questionId,
-        answerer: starter,
-        holder: other,
-        isFirstAnswer: true,
-        number: turnIndex + 1,
-        total: turns.length,
-        canSkip: !turn.isRated,
-      ),
-      Phase.firstRating => RatingStep(
-        questionId: turn.questionId,
-        rater: other,
-        answerer: starter,
-      ),
-      Phase.secondAnswer => AnswerStep(
-        questionId: turn.questionId,
-        answerer: other,
-        holder: starter,
-        isFirstAnswer: false,
-        number: turnIndex + 1,
-        total: turns.length,
-        canSkip: !turn.isRated,
-      ),
-      Phase.secondRating => RatingStep(
-        questionId: turn.questionId,
-        rater: starter,
-        answerer: other,
-      ),
+      Phase.firstAnswer => answer(starter),
+      Phase.firstRating => rating(other),
+      Phase.secondAnswer => answer(other),
+      Phase.secondRating => rating(starter),
     };
   }
 

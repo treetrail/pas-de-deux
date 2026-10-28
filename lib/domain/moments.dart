@@ -7,8 +7,9 @@ class BestMoment {
 
   final String questionId;
 
-  /// Whose answer moved whom, one entry per "Hat mich berührt".
-  final List<({String answerer, String rater})> moved;
+  /// Whose answer moved whom, one entry per "Hat mich berührt". [person]
+  /// is the index of the answerer in the game's names.
+  final List<({String answerer, String rater, int person})> moved;
 }
 
 /// Up to three questions with the highest sum of ratings, each with at least
@@ -18,8 +19,8 @@ List<BestMoment> bestMoments(GameState game) {
   for (var i = 0; i < game.turns.length; i++) {
     final turn = game.turns[i];
     if (!turn.ratings.contains(Rating.moved)) continue;
-    final starter = game.names[game.starterOf(i)];
-    final other = game.names[1 - game.starterOf(i)];
+    final starter = game.starterOf(i);
+    final other = 1 - starter;
     candidates.add((
       index: i,
       sum: turn.ratings.fold(0, (sum, rating) => sum + (rating?.value ?? 0)),
@@ -27,9 +28,17 @@ List<BestMoment> bestMoments(GameState game) {
         questionId: turn.questionId,
         moved: [
           if (turn.ratings[0] == Rating.moved)
-            (answerer: starter, rater: other),
+            (
+              answerer: game.names[starter],
+              rater: game.names[other],
+              person: starter,
+            ),
           if (turn.ratings[1] == Rating.moved)
-            (answerer: other, rater: starter),
+            (
+              answerer: game.names[other],
+              rater: game.names[starter],
+              person: other,
+            ),
         ],
       ),
     ));
