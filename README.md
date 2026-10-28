@@ -9,7 +9,9 @@ Italian and French.
 The app is shared with friends as a web app, not through the app stores:
 <https://treetrail.github.io/pas-de-deux/>. Every push to `main` publishes it
 ([web.yml](.github/workflows/web.yml)). On the phone, "Add to Home Screen"
-opens it like an app.
+opens it like an app. After the first visit it also starts offline
+([sw.js](web/sw.js)), and it loads nothing from other servers: CanvasKit and
+the Roboto font come with the app (`--no-web-resources-cdn`).
 
 Ads and the purchase "Werbefrei" are switched off. Their code stays and comes
 back with `--dart-define=STORE_FEATURES=true`, for example for a store

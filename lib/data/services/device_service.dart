@@ -1,6 +1,7 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
 import 'chime_stub.dart' if (dart.library.js_interop) 'chime_web.dart';
@@ -12,11 +13,19 @@ class DeviceService {
   final _chime = Chime();
   int _awake = 0;
   bool _audioConfigured = false;
+  AppLifecycleListener? _lifecycle;
 
   /// Keeps the screen on until a matching [allowSleep]. Calls may nest: the
   /// four-minute look opens on top of the running game.
   void stayAwake() {
+    // Browsers drop the wake lock when the page is hidden, for example during
+    // a short switch to another app, and do not take it back by themselves.
+    if (kIsWeb) _lifecycle ??= AppLifecycleListener(onResume: _keepOnAgain);
     if (_awake++ == 0) _keepScreenOn(true);
+  }
+
+  void _keepOnAgain() {
+    if (_awake > 0) _keepScreenOn(true);
   }
 
   void allowSleep() {

@@ -46,5 +46,19 @@
     * https://docs.flutter.dev/platform-integration/web/initialization
   -->
   <script src="flutter_bootstrap.js" async></script>
+  <script>
+    // Offline cache, see sw.js.
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", async () => {
+        await navigator.serviceWorker.register("sw.js");
+        const worker = (await navigator.serviceWorker.ready).active;
+        const loaded = () => [location.href, ...performance.getEntriesByType("resource").map((e) => e.name)]
+          .filter((url) => url.startsWith(location.origin));
+        worker.postMessage({ type: "cache", urls: loaded() });
+        // The engine and the questions may still be loading.
+        setTimeout(() => worker.postMessage({ type: "cache", urls: loaded() }), 10000);
+      });
+    }
+  </script>
 </body>
 </html>
