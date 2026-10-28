@@ -4,6 +4,7 @@ import 'package:in_app_purchase/in_app_purchase.dart';
 import 'app/app.dart';
 import 'app/dependencies.dart';
 import 'app/error_handling.dart';
+import 'app/features.dart';
 import 'data/repositories/ad_free_repository.dart';
 import 'data/repositories/catalog_repository.dart';
 import 'data/repositories/game_repository.dart';
@@ -24,7 +25,7 @@ Future<void> main() async {
     repository: AdFreeRepository(store),
     store: InAppPurchase.instance,
   );
-  await purchases.start();
+  if (storeFeatures) await purchases.start();
 
   final settingsRepository = SettingsRepository(store);
   final dependencies = Dependencies(
@@ -40,7 +41,7 @@ Future<void> main() async {
   );
 
   void disableAdsOnceAdFree() {
-    if (purchases.adFree) dependencies.ads.disable();
+    if (!storeFeatures || purchases.adFree) dependencies.ads.disable();
   }
 
   disableAdsOnceAdFree();

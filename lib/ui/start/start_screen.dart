@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import '../../app/dependencies.dart';
+import '../../app/features.dart';
 import '../../data/services/purchase_service.dart';
 import '../../domain/game.dart';
 import '../../l10n/app_localizations.dart';
@@ -142,7 +143,8 @@ class _StartScreenState extends State<StartScreen> {
                 ListenableBuilder(
                   listenable: purchases,
                   builder: (context, _) =>
-                      purchases.adFree ||
+                      !storeFeatures ||
+                          purchases.adFree ||
                           purchases.state == StoreState.unavailable
                       ? const SizedBox.shrink()
                       : Padding(

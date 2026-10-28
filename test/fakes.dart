@@ -33,6 +33,9 @@ class FakeDevice implements DeviceService {
   void allowSleep() => awake--;
 
   @override
+  void prepareSound() {}
+
+  @override
   Future<void> ring({required bool sound}) async => rings.add(sound);
 }
 
