@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/dependencies.dart';
+import '../../app/features.dart';
 import '../../data/services/purchase_service.dart';
 import '../../domain/catalog.dart';
 import '../../l10n/app_localizations.dart';
@@ -54,42 +55,44 @@ class SettingsScreen extends StatelessWidget {
                 value: settings.settings.soundOn,
                 onChanged: settings.setSoundOn,
               ),
-              _Header(l10n.adFreeTitle),
-              if (purchases.adFree)
-                ListTile(
-                  leading: const Icon(Icons.check_circle_outline),
-                  title: Text(l10n.adFreeActive),
-                )
-              else ...[
-                ListTile(
-                  title: Text(
-                    purchases.price == null
-                        ? l10n.adFreeTitle
-                        : l10n.buyAdFree(purchases.price!),
+              if (storeFeatures) ...[
+                _Header(l10n.adFreeTitle),
+                if (purchases.adFree)
+                  ListTile(
+                    leading: const Icon(Icons.check_circle_outline),
+                    title: Text(l10n.adFreeActive),
+                  )
+                else ...[
+                  ListTile(
+                    title: Text(
+                      purchases.price == null
+                          ? l10n.adFreeTitle
+                          : l10n.buyAdFree(purchases.price!),
+                    ),
+                    subtitle: switch (purchases.state) {
+                      StoreState.pending => Text(l10n.purchasePending),
+                      StoreState.failed => Text(l10n.purchaseFailed),
+                      StoreState.unavailable => Text(l10n.storeUnavailable),
+                      StoreState.loading || StoreState.ready => null,
+                    },
+                    enabled:
+                        purchases.price != null &&
+                        purchases.state != StoreState.pending,
+                    onTap: purchases.buy,
                   ),
-                  subtitle: switch (purchases.state) {
-                    StoreState.pending => Text(l10n.purchasePending),
-                    StoreState.failed => Text(l10n.purchaseFailed),
-                    StoreState.unavailable => Text(l10n.storeUnavailable),
-                    StoreState.loading || StoreState.ready => null,
-                  },
-                  enabled:
-                      purchases.price != null &&
-                      purchases.state != StoreState.pending,
-                  onTap: purchases.buy,
-                ),
-                ListTile(
-                  title: Text(l10n.restorePurchases),
-                  enabled: purchases.state != StoreState.unavailable,
-                  onTap: purchases.restore,
-                ),
+                  ListTile(
+                    title: Text(l10n.restorePurchases),
+                    enabled: purchases.state != StoreState.unavailable,
+                    onTap: purchases.restore,
+                  ),
+                ],
               ],
               if (ads.privacyOptionsRequired)
                 ListTile(
                   title: Text(l10n.privacyOptions),
                   onTap: ads.showPrivacyOptions,
                 ),
-              if (kDebugMode && !purchases.adFree)
+              if (storeFeatures && kDebugMode && !purchases.adFree)
                 ListTile(
                   title: Text(l10n.resetConsent),
                   onTap: ads.resetConsent,

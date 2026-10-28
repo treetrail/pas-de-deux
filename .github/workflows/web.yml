@@ -1,0 +1,51 @@
+name: Web app
+
+# Builds the web app from main and publishes it on GitHub Pages, where it is
+# shared with friends instead of going through the app stores.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2.23.0
+        with:
+          channel: stable
+          # Same version as in ci.yml.
+          flutter-version: 3.47.8
+          cache: true
+          pub-cache: true
+      - name: Get dependencies
+        run: flutter pub get --enforce-lockfile
+      - name: Build
+        # GitHub Pages serves the app under /<repository>/.
+        run: flutter build web --release --base-href /pas-de-deux/
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: build/web
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write # proves to Pages that this workflow built the artifact
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

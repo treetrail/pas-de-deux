@@ -315,6 +315,7 @@ class _LookOfferViewState extends State<_LookOfferView> {
 
   Future<void> _startLook() async {
     final screen = widget.screen;
+    if (screen.settings.settings.soundOn) screen.device.prepareSound();
     await Navigator.push<void>(
       context,
       MaterialPageRoute(
