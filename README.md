@@ -17,6 +17,18 @@ Ads and the purchase "Werbefrei" are switched off. Their code stays and comes
 back with `--dart-define=STORE_FEATURES=true`, for example for a store
 release later.
 
+## Documentation
+
+In German, as the project is planned in German:
+
+- [Specification](docs/spezifikation.md): user stories US-01 to US-19, which the code
+  refers to, and the non-functional requirements (an excerpt).
+- [Technical concept](docs/technisches-konzept.md): architecture, decisions and the web
+  app (PWA).
+
+Both are copies of the project document, which remains the source; changes come here
+by pull request.
+
 ## Development
 
 Flutter 3.47.8 (stable). Minimum iOS 18, Android 7.0 (API 24), target API 36.
